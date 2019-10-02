@@ -78,6 +78,8 @@ conda env remove --name <env_name> or --prefix <env_path>
 
 In a **HPC** cluster system, first you need to load `miniconda3` module to be able to use `conda`. You can use the following as a template to build your new environment:
 ```bash
+export CONDA_PKGS_DIRS=~/.conda/pkgs
+export CONDA_ENVS_PATH=~/.conda/envs
 module load miniconda3
 
 if [ ! -d yourlocal_env ]; then
