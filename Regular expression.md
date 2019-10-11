@@ -39,10 +39,10 @@ re.findall('goo+al','goal vs goooooal') # one or more (*) of character 'o'
 # ['goooooal']
 
 re.findall('\d', 'today is Oct 10') # Find digits (\d)
-['1', '0']
+# ['1', '0']
 
 re.findall('\d{2}', 'today is Oct 10') # Find two digits (\d{})
-['10']
+# ['10']
 
 re.findall('\w', 'today is Oct 10') # find any words (\w)
 # ['t', 'o', 'd', 'a', 'y', 'i', 's', 'O', 'c', 't', '1', '0'] 
