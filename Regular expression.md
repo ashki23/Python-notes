@@ -29,6 +29,15 @@ re.findall('begin$', 'this is another begin') # search only last word ($)
 re.findall('.*begin', 'this is another begin') # search 'begin' and everything before (.*)
 # ['this is another begin']
 
+re.findall('goo?al','goal vs goooooal') # zero or one (?) of charcter 'o'
+# ['goal']
+
+re.findall('goo*al','goal vs goooooal') # zero or more (*) of character 'o'
+# ['goal', 'goooooal']
+
+re.findall('goo+al','goal vs goooooal') # one or more (*) of character 'o'
+# ['goooooal']
+
 re.findall('\d', 'today is Oct 10') # Find digits (\d)
 ['1', '0']
 
@@ -52,14 +61,5 @@ re.findall('([A-Z][a-z]*)', 'today is Oct 10') # find any capital word ([A-Z]) a
 
 re.findall('[A-Z][a-z]{2} \d{2}', 'today is Oct 10') # find any capital letter ([A-Z]) followed by two small letters ([a-z]{2}) and a space ( ) and two digits (\d{2})
 # ['Oct 10']
-
-re.findall('goo?al','goal vs goooooal') # zero or one (?) of charcter 'o'
-# ['goal']
-
-re.findall('goo*al','goal vs goooooal') # zero or more (*) of character 'o'
-# ['goal', 'goooooal']
-
-re.findall('goo+al','goal vs goooooal') # one or more (*) of character 'o'
-# ['goooooal']
 
 ```
