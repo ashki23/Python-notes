@@ -87,3 +87,14 @@ conda create --yes --prefix ./yourlocal_env <pkg name> <pkg name> ...
 fi
 source activate ./yourlocal_env
 ```
+**Note**: To prevent dependencies crash, it is vital to install all the packages at the same time when you are creating the new environment (as you can see in the above code, all packages listed after env directory). Also, it is very important to use a unique channel for all required packages as much as possible. For example if one of the required packages is only available in `conda-forge` it is better to use `conda-forge` as the main channel by:
+
+```bash
+conda create --yes --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> <pkg name> ...
+```
+
+Also, it is important to keep using same channel for updateing the environment by:
+
+```bash
+conda update --yes --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> ...
+```
