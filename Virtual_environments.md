@@ -5,15 +5,15 @@ This means it may not be possible for one Python installation to meet the requir
 
 The solution for this problem is to create a virtual environment, a self-contained directory tree that contains a Python installation for a particular version of Python, plus a number of additional packages." - from [the Python Tutorial](https://docs.python.org/3/tutorial/venv.html)
 
-In this toturial we are discussing about two major methods to create and manage virtusal environments in Python.
+In this tutorial we are discussing about two major methods to create and manage virtual environments in Python.
 
 ## Venv
-To create a virtual environment, run the venv module as a script with the directory path. For examle if use the following code you will create `tutorial-env` in the directory that you are in:
+To create a virtual environment, run the venv module as a script with the directory path. For example if use the following code you will create `tutorial-env` in the directory that you are in:
 ```bash
 python3 -m venv tutorial-env
 ```
 
-It also create directories containing a copy of the Python interpreter, the standard library, and various supporting files. Once you’ve created a virtual environment, you can activate it by:
+It also creates directories containing a copy of the Python interpreter, the standard library, and various supporting files. Once you’ve created a virtual environment, you can activate it by:
 ```bash
 source tutorial-env/bin/activate
 ```
@@ -38,7 +38,7 @@ pip install redis
 pip install gitpython
 ```
 
-As a shortkey, you might use `.` instead of `source`. To exit from a virtual environment run `deactivate`. 
+As a shortcut, you might use `.` instead of `source`. To exit from a virtual environment run `. deactivate`. 
 
 ## Miniconda
 To use a more sophisticated way, you might consider Conda as an environment management system, you need to install Miniconda (or Anaconda) and use `conda create` to make a new environment by:
@@ -57,7 +57,7 @@ conda activate <env_name or env_path>
 conda deactivate
 ```
 
-Note that, for conda versions prior to 4.6 you need to use `source` instead of `conda` in the above commands. Now, you can use the following to update `conda` and install new libraries and software:
+Note that, for Conda versions prior to 4.6 you need to use `source` instead of `conda` in the above commands. Now, you can use the following to update `conda` and install new libraries and software:
 ```bash
 conda update conda
 conda install <pkg name>
@@ -73,7 +73,7 @@ And to remove cache files use:
 conda clean --all
 ```
 
-**Note**: before removing packages or caches, make sure you are in the right virtual environment. You can use `conda info` and `conda env list` to find your current environment and use `source activate <env name or path>` or `source deactivate` to go to the rigth env.
+**Note**: before removing packages or caches, make sure you are in the right virtual environment. You can use `conda info` and `conda env list` to find your current environment and use `source activate <env name or path>` or `source deactivate` to go to activate the env.
 
 To remove a virtual environment you can use:
 ```bash
@@ -98,7 +98,7 @@ source activate ./yourlocal_env
 conda create --yes --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> <pkg name> ...
 ```
 
-Also, it is important to keep using same channel for updateing the environment by:
+Also, it is important to keep using same channel for updating the environment by:
 
 ```bash
 conda update --yes --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> ...
