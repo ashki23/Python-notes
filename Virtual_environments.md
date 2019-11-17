@@ -1,13 +1,13 @@
 # Virtual Environments in Python
-[The Python Tutorial](https://docs.python.org/3/tutorial/venv.html)
-
-Python applications will often use packages and modules that don’t come as part of the standard library. Applications will sometimes need a specific version of a library, because the application may require that a particular bug has been fixed or the application may be written using an obsolete version of the library’s interface.
+"Python applications will often use packages and modules that don’t come as part of the standard library. Applications will sometimes need a specific version of a library, because the application may require that a particular bug has been fixed or the application may be written using an obsolete version of the library’s interface.
 
 This means it may not be possible for one Python installation to meet the requirements of every application. If application A needs version 1.0 of a particular module but application B needs version 2.0, then the requirements are in conflict and installing either version 1.0 or 2.0 will leave one application unable to run.
 
-The solution for this problem is to create a virtual environment, a self-contained directory tree that contains a Python installation for a particular version of Python, plus a number of additional packages.
+The solution for this problem is to create a virtual environment, a self-contained directory tree that contains a Python installation for a particular version of Python, plus a number of additional packages." - from [the Python Tutorial](https://docs.python.org/3/tutorial/venv.html)
 
-## venv
+In this toturial we are discussing about two major methods to create and manage virtusal environments in Python.
+
+## Venv
 To create a virtual environment, decide upon a directory where you want to place it, and run the venv module as a script with the directory path:
 ```bash
 python3 -m venv tutorial-env
