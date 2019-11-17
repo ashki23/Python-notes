@@ -1,10 +1,9 @@
 # Regular expression
-*Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language 
+"Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language 
 embedded inside Python and made available through the re module. Using this little language, you specify the rules for the set 
 of possible strings that you want to match; this set might contain English sentences, or e-mail addresses, or TeX commands, 
 or anything you like. You can then ask questions such as “Does this string match the pattern?”, or “Is there a match for 
-the pattern anywhere in this string?”. You can also use REs to modify a string or to split it apart in various ways. 
-(from [Python HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)).*
+the pattern anywhere in this string?”. You can also use REs to modify a string or to split it apart in various ways." - from [Python HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)
 
 Sources:
 - [Python HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)
