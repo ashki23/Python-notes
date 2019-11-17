@@ -5,11 +5,11 @@ of possible strings that you want to match; this set might contain English sente
 or anything you like. You can then ask questions such as “Does this string match the pattern?”, or “Is there a match for 
 the pattern anywhere in this string?”. You can also use REs to modify a string or to split it apart in various ways." - from [Python HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)
 
-Sources:
+## Sources
 - [Python HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)
 - [Python *re* library](https://docs.python.org/3/howto/regex.html#regex-howto)
 
-Examples:
+## Examples
 ```python
 import re
 
