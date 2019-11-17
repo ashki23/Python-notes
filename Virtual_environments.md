@@ -8,17 +8,22 @@ The solution for this problem is to create a virtual environment, a self-contain
 In this toturial we are discussing about two major methods to create and manage virtusal environments in Python.
 
 ## Venv
-To create a virtual environment, decide upon a directory where you want to place it, and run the venv module as a script with the directory path:
+To create a virtual environment, run the venv module as a script with the directory path. For examle if use the following code you will create `tutorial-env` in the directory that you are in:
 ```bash
 python3 -m venv tutorial-env
 ```
 
-This will create the `tutorial-env` directory if it doesn’t exist, and also create directories inside it containing a copy of the Python interpreter, the standard library, and various supporting files. Once you’ve created a virtual environment, you may activate it by:
+It also create directories containing a copy of the Python interpreter, the standard library, and various supporting files. Once you’ve created a virtual environment, you can activate it by:
 ```bash
 source tutorial-env/bin/activate
 ```
 
-We can use the following Bash scripts to create `tutorial-env` if it does not exist and activate it and install modules:
+After activating the environment with the above command we can use `pip` to install required packages for our application by using:
+```bash
+pip install <package name>
+```
+
+For example use the following Bash scripts to create `tutorial-env`, if it does not exist, and install modules after activation:
 ```bash
 #!/bin/bash
 
@@ -33,10 +38,10 @@ pip install redis
 pip install gitpython
 ```
 
-As a shortkey, you might use `.` instead `source`. To exit from a virtual environment run `deactivate`. 
+As a shortkey, you might use `.` instead of `source`. To exit from a virtual environment run `deactivate`. 
 
 ## Miniconda
-To use use Conda as an environment management system, you need to install Miniconda (or Anaconda) and use `conda create` to make a new environment by:
+To use a more sophisticated way, you might consider Conda as an environment management system, you need to install Miniconda (or Anaconda) and use `conda create` to make a new environment by:
 ```bash
 conda create --name <env_name> <pkg name> <pkg name> ...
 ```
