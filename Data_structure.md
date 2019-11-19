@@ -154,19 +154,18 @@ Note that we can use the index multiple times to retrieve information from neste
 print(example[3][1])
 ## 123
 ```
-
-### Lists as objects
-We can use:
-- `list.append(x)` to append x
-- `list.extend(x)` or `+=` to extend x
-- `list.insert(i,x)` to insert x in position i
-- `list.remove(x)` to remove x
-- `list.pop(i)` to remove item at position i
-- `list.sort()` to sort
-- `list.reverse()` to reverse the order
-- `list.count(x)` to count number of times x repeated
-- `list.index(x)` to find index of item x
-- `list.clear()` to clear
+Here are some of the methods of list objects:
+- `list.append(x)` append x
+- `list.extend(x)` or `+=` extend/add x
+- `list.insert(i,x)` insert x in position i
+- `list.remove(x)` remove x
+- `list.pop(i)` remove item at position i
+- `list.sort()` sort
+- `list.reverse()` reverse the order
+- `list.count(x)` count number of times x repeated
+- `list.index(x)` find index of item x
+- `list.copy()` copy list
+- `list.clear()` clear list
 
 ``` python
 a = [1,4,5]
@@ -335,6 +334,15 @@ v = list(example.values())
 print(v)
 ## ['value', 'two', 3]
 ```
+
+Here are some of the methods of dict objects:
+- `dict.update()` update/add element 
+- `dict.popitem()` remove arbitrary element
+- `dict.pop(k)` remove element k
+- `dict.keys()` return keys
+- `dict.items()` retun items  
+- `dict.copy()` copy dict
+- `dict.clear()` clear dict
 
 ### Iterating through dicts
 ``` python
