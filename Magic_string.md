@@ -48,3 +48,16 @@ for i in num:
 # file 2
 # file 3
 ```
+
+The following is a list of some important string formatting specifications:
+
+|Format|Meaning|
+|---|---|
+|`%s`|a string|
+|`%d`|an integer|
+|`%f`|a decimal with 6 decimals|
+|`%e`|scientific notation (with `e`)|
+|`%g`|compact decimal or scientific notation (with `e`)|
+|`%.xy`|format y with x decimals, eg. `.12f`|
+
+
