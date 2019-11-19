@@ -10,7 +10,7 @@ Different types of data in Python are:
 - Lists `[]`
 - Tuples `()`
 - Sets `{}`
-- Dictionaries `{'key' : value}`
+- Dictionaries `{key:value}`
 
 ``` python
 # All types
@@ -101,7 +101,7 @@ There are four major data structures in Python:
 -   Lists: `list()` `[]`
 -   Tuples: `tuple()` `()`
 -   Sets: `set()` `{}`
--   Dictionaries: `dict()` `{'key': value}`
+-   Dictionaries: `dict()` `{key:value}`
 
 ### Lists
 A list is a set of objects enclosed by a set of square brackets (`[]`). Lists are **mutable**, and their elements are usually 
