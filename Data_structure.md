@@ -340,17 +340,18 @@ Here are some of the methods of dict objects:
 - `dict.popitem()` remove arbitrary element
 - `dict.pop(k)` remove element k
 - `dict.keys()` return keys
-- `dict.items()` retun items  
+- `dict.items()` retun items
+- `dict.get(k)` return values for element k
 - `dict.copy()` copy dict
 - `dict.clear()` clear dict
 
 ### Iterating through dicts
 ``` python
 color = ['blue', 'red', 'white', 'green', 'green', 'red', 'red', 'white', 'red', 'green']
-c = {x:color.count(x) for x in color}
-print(c)
+col = {x:color.count(x) for x in color}
+print(col)
 ## {'blue': 1, 'red': 4, 'white': 2, 'green': 3}
-s = [{k:c[k]} for k in sorted(c,key = c.get,reverse = True)]
-print(s)
+c = {k:col[k] for k in sorted(col,key = col.get,reverse = True)}
+print(c)
 ## [{'red': 4}, {'green': 3}, {'white': 2}, {'blue': 1}]
 ```
