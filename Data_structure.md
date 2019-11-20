@@ -353,5 +353,5 @@ print(col)
 ## {'blue': 1, 'red': 4, 'white': 2, 'green': 3}
 c = {k:col[k] for k in sorted(col,key = col.get,reverse = True)}
 print(c)
-## [{'red': 4}, {'green': 3}, {'white': 2}, {'blue': 1}]
+## {'red': 4, 'green': 3, 'white': 2, 'blue': 1}
 ```
