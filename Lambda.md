@@ -44,11 +44,11 @@ fun = lambda arg1,arg2,arg3,...: expression
 For example It is possible to write a single limit for the second derivative:
 ```python
 def deriv2nd(f, x, h = 1E-6):
-  r = (f(x-h) - 2*f(x) + f(x+h))/float(h*h) 
+  r = (f(x-h) - 2*f(x) + f(x+h))/float(h**2) 
   return r
  
  deriv2nd(lambda x: x**3, x = 2, h = 1E-6)
- # 12.00284316382749
+ # 12.002843163827492
  ```
  
  Which we know for f(x) = x^3 the second derivative f(x)'' = 6x is equal to 12 for x = 2.
