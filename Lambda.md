@@ -52,3 +52,13 @@ def deriv2nd(f, x, h = 1E-6):
  ```
  
  Which we know for f(x) = x^3 the second derivative f(x)'' = 6x is equal to 12 for x = 2.
+ 
+ For another example let's replace an string in a mathematical formula with a number and find the answer:
+ ```python
+ re = lambda f,x,z: eval(f.replace(str(x),str(z)))
+ 
+ # Example
+ f = '2*x + 5'
+ re(f,'x',2)
+ # 9
+ ```
