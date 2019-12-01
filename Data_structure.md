@@ -1,4 +1,4 @@
-# Python data structure
+# Python data structures
 [The Python Tutorial](https://docs.python.org/3.7/tutorial/datastructures.html)
 
 Different types of data in Python are:
@@ -66,12 +66,12 @@ type(multiline)
 ### Converting between data types
 We can use the following commands to convert data to other types:
 
-- `str()` creates a string
-- `int()` creates an integer
-- `float()` creates a float
-- `bool()` creates a boolean
-- `list()` creates a list
-- `tuple()` creates a tuple
+- `str()` create a string
+- `int()` create an integer
+- `float()` create a float
+- `bool()` create a boolean
+- `list()` create a list
+- `tuple()` create a tuple
 - `set()` create a set
 - `dict()` create a dictionary
 
@@ -104,8 +104,7 @@ There are four major data structures in Python:
 -   Dictionaries: `dict()` `{key:value}`
 
 ### Lists
-A list is a set of objects enclosed by a set of square brackets (`[]`). Lists are **mutable**, and their elements are usually 
-**homogeneous** and are accessed by iterating over the list.
+A list is a set of objects enclosed by a set of square brackets (`[]`). Lists are **mutable**, and their elements are usually **homogeneous** and are accessed by iterating over the list.
 
 ``` python
 list_ = [1,3,5,7]
@@ -149,7 +148,7 @@ print(names[:-2]) # Everything before the last two elements
 ## ['turtle', 'polar bear']
 ```
 
-Note that we can use the index multiple times to retrieve information from nested objects.
+We can use the index multiple times to retrieve information from nested objects.
 ``` python
 print(example[3][1])
 ## 123
@@ -218,8 +217,7 @@ print(id(list2))
 ## 139724935851336
 ```
 
-As you can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well. 
-You can work on `list2` without changing `list1` by using `.copy()`, for instance:
+As you can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well.  We can work on `list2` without changing `list1` by using `.copy()`, for instance:
 ```python
 list1 = [1,2,3]
 list2 = list1.copy()
@@ -251,11 +249,9 @@ print(nested)
 
 ## Tuples and sets
 A **tuple** consists of a number of values separated by commas. Though tuples may seem similar to lists, they are often used 
-in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of 
-elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
+in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
 
-A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate 
-entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
 ```python
 # Tuples
 tp = 1399,'hello',1400 # It might include parentheses or not
@@ -310,9 +306,7 @@ print({x**2 for x in [1,2,2,1,3]})
 ```
 
 ## Dictionaries
-Dictionaries (also called dicts) are another key data structure. Unlike sequences (lists, and tuples), which are indexed by a range of numbers, **dictionaries** are indexed by keys, which can 
-be any immutable type (e.g. strings and numbers). The main operations on a dictionary are storing a value with some key and 
-extracting the value given the key.
+Dictionaries (also called dicts) are another key data structure. Unlike sequences (lists, and tuples), which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type (e.g. strings and numbers). The main operations on a dictionary are storing a value with some key and extracting the value given the key.
 ``` python
 example = {}
 type(example)
@@ -340,7 +334,7 @@ Here are some of the methods of dict objects:
 - `dict.popitem()` remove arbitrary element
 - `dict.pop(k)` remove element k
 - `dict.keys()` return keys
-- `dict.items()` retun items
+- `dict.items()` return items
 - `dict.get(k)` return values for element k
 - `dict.copy()` copy dict
 - `dict.clear()` clear dict
