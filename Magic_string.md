@@ -1,7 +1,7 @@
 # String formatting or interpolation operator
-[Python standard library](https://docs.python.org/3/library/stdtypes.html?highlight=string%20interpolation#printf-style-string-formatting)
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - October 2019*
 
-String objects have one unique built-in operation: the `%` operator (modulo). This is also known as the string formatting or interpolation operator. Given format `%` values (where format is a string), `%` conversion specifications in format are replaced with zero or more elements of values.
+String objects have one unique built-in operation: the `%` operator (modulo). This is also known as the string formatting or interpolation operator. Given format `%` values (where format is a string), `%` conversion specifications in format are replaced with zero or more elements of values ([Python standard library](https://docs.python.org/3/library/stdtypes.html?highlight=string%20interpolation#printf-style-string-formatting)). 
 
 Examples:
 
@@ -60,4 +60,5 @@ The following is a list of some important string formatting specifications:
 |`%g`|compact decimal or scientific notation (with `e`)|
 |`%.xy`|format y with x decimals, eg. `.12f`|
 
-
+---
+Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
