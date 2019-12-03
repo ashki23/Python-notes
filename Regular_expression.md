@@ -1,4 +1,6 @@
 # Regular expression
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - October 2019*
+
 "Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language 
 embedded inside Python and made available through the re module. Using this little language, you specify the rules for the set 
 of possible strings that you want to match; this set might contain English sentences, or e-mail addresses, or TeX commands, 
@@ -62,3 +64,6 @@ re.findall('[A-Z][a-z]{2} \d{2}', 'today is Oct 10') # find any capital letter (
 # ['Oct 10']
 
 ```
+
+---
+Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
