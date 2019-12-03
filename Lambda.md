@@ -62,3 +62,14 @@ def deriv2nd(f, x, h = 1E-6):
  re(f,'x',2)
  # 9
  ```
+ 
+ Let's find p-norm of a vector by:
+ ```python
+ pnorm = lambda v,p=2: sum([abs(x)**p for x in v])**(1/p)
+ 
+ # Example
+ pnorm([2,3,4])
+ # 5.385164807134504
+ pnorm([2,3,4],1)
+ # 9.0
+ ```
