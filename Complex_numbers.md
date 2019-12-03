@@ -1,8 +1,8 @@
 # Complex numbers
-[Mathematical functions for complex numbers](https://docs.python.org/3/library/cmath.html)
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 Python supports computation with complex numbers. The imaginary unit is written as `j` in Python, 
-instead of `i` as in mathematics. You can generate complex numbers by two following methods:
+instead of `i` as in mathematics ([Mathematical functions for complex numbers](https://docs.python.org/3/library/cmath.html)). You can generate complex numbers by two following methods:
 ```python
 a = 2j
 print(a)
@@ -26,3 +26,5 @@ cmath.sqrt(-1)
 cmath.sin(1j)
 # 1.1752011936438014j
 ```
+---
+Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
