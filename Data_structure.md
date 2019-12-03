@@ -1,6 +1,16 @@
 # Python data structures
-[The Python Tutorial](https://docs.python.org/3.7/tutorial/datastructures.html)
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
+[Python](https://www.python.org/) is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple approach to object-oriented programming. To learn Python, first we need to learn how Python treats with data. In this article we will learn about data types and structures in Python 3 through several examples. You may find more about Python programming at:
+
+- [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/)
+- [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/)
+- [Analysis pipelines with Python](https://hpc-carpentry.github.io/hpc-python/)
+- [The Python Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+
+---
+
+## Python data types
 Different types of data in Python are:
 
 - Strings `str`
@@ -66,12 +76,12 @@ type(multiline)
 ### Converting between data types
 We can use the following commands to convert data to other types:
 
-- `str()` create a string
-- `int()` create an integer
-- `float()` create a float
-- `bool()` create a boolean
-- `list()` create a list
-- `tuple()` create a tuple
+- `str()` creates a string
+- `int()` creates an integer
+- `float()` creates a float
+- `bool()` creates a boolean
+- `list()` creates a list
+- `tuple()` creates a tuple
 - `set()` create a set
 - `dict()` create a dictionary
 
@@ -94,9 +104,10 @@ tuple([1,3,5])
 set([1,3,5,1,3,5])
 ## {1,3,5}
 ```
+---
 
 ## Data structures
-There are four major data structures in Python:
+There are four major [data structures](https://docs.python.org/3.7/tutorial/datastructures.html) in Python:
 
 -   Lists: `list()` `[]`
 -   Tuples: `tuple()` `()`
@@ -154,6 +165,7 @@ print(example[3][1])
 ## 123
 ```
 Here are some of the methods of list objects:
+
 - `list.append(x)` append x
 - `list.extend(x)` or `+=` extend/add x
 - `list.insert(i,x)` insert x in position i
@@ -202,8 +214,8 @@ print(a)
 ## []
 ```
 
-Be cautious when you set a list is equal to another list. It might change list unintentionally, see the example in below:
-```python
+Be cautious when set a list is equal to another list. It might change list unintentionally, see the example in below:
+``` python
 list1 = [1, 2, 3]
 list2 = list1
 list2 += [4, 5]
@@ -217,8 +229,8 @@ print(id(list2))
 ## 139724935851336
 ```
 
-As you can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well.  We can work on `list2` without changing `list1` by using `.copy()`, for instance:
-```python
+As we can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well. We can work on `list2` without changing `list1` by using `.copy()`, for instance:
+``` python
 list1 = [1,2,3]
 list2 = list1.copy()
 list2 += [4,5] 
@@ -232,7 +244,7 @@ print(id(list2))
 ## 139724935851208
 ```
 
-### Iterating through lists
+Iterating through lists:
 ``` python
 print([x**2 for x in range(5)])
 ## [0, 1, 4, 9, 16]
@@ -247,12 +259,11 @@ print(nested)
 ##  [(1, 3), (2, 3), (3, 3)]]
 ```
 
-## Tuples and sets
-A **tuple** consists of a number of values separated by commas. Though tuples may seem similar to lists, they are often used 
-in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
+### Tuples and sets
+A **tuple** consists of a number of values separated by commas. Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
 
 A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
-```python
+``` python
 # Tuples
 tp = 1399,'hello',1400 # It might include parentheses or not
 type(tp)
@@ -291,7 +302,7 @@ print(sii)
 ```
 
 **Note**: to create empty sets use `set()` because `{}` considered as empty dictionary in python.
-```python
+``` python
 for element in [[], (), {}]:
     print(type(element)) 
 ## <class 'list'>
@@ -299,13 +310,13 @@ for element in [[], (), {}]:
 ## <class 'dict'>
 ```
 
-### Iterating through sets
-```python
+Iterating through sets:
+``` python
 print({x**2 for x in [1,2,2,1,3]})
 ## {1, 4, 9}
 ```
 
-## Dictionaries
+### Dictionaries
 Dictionaries (also called dicts) are another key data structure. Unlike sequences (lists, and tuples), which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type (e.g. strings and numbers). The main operations on a dictionary are storing a value with some key and extracting the value given the key.
 ``` python
 example = {}
@@ -330,16 +341,17 @@ print(v)
 ```
 
 Here are some of the methods of dict objects:
-- `dict.update()` update/add element 
-- `dict.popitem()` remove arbitrary element
-- `dict.pop(k)` remove element k
-- `dict.keys()` return keys
-- `dict.items()` return items
-- `dict.get(k)` return values for element k
-- `dict.copy()` copy dict
-- `dict.clear()` clear dict
 
-### Iterating through dicts
+- `dict.update()` updates/adds element 
+- `dict.popitem()` removes arbitrary element
+- `dict.pop(k)` removes element k
+- `dict.keys()` returns keys
+- `dict.items()` returns items
+- `dict.get(k)` returns values for element k
+- `dict.copy()` copes dict
+- `dict.clear()` clears dict
+
+Iterating through dicts:
 ``` python
 color = ['blue', 'red', 'white', 'green', 'green', 'red', 'red', 'white', 'red', 'green']
 col = {x:color.count(x) for x in color}
@@ -349,3 +361,5 @@ c = {k:col[k] for k in sorted(col,key = col.get,reverse = True)}
 print(c)
 ## {'red': 4, 'green': 3, 'white': 2, 'blue': 1}
 ```
+---
+Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
