@@ -1,4 +1,5 @@
 # Lambda function
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 Python includes a quick one-line construction of functions that is often convenient to make your code compact. For example:
 ```python
@@ -73,3 +74,6 @@ def deriv2nd(f, x, h = 1E-6):
  pnorm([2,3,4],1)
  # 9.0
  ```
+
+---
+Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
