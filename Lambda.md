@@ -66,7 +66,7 @@ def deriv2nd(f,x,h=1E-6):
  # 9
  ```
  
- Let's find p-norm of a vector by:
+ Let's find Euclidean norm of a vector by:
  ```python
  pnorm = lambda v,p=2: sum([abs(x)**p for x in v])**(1/p)
  
