@@ -2,6 +2,7 @@
 
 This is a general repository about Python programming. You may find notes about virtual environments, packge managers and 
 introduction of programming in Python. The following is list of content of the repository:
+- [Function programming in Python](https://github.com/ashki23/Python-notes/blob/master/Function_programming.md)
 - [Python data structures](https://github.com/ashki23/Python-notes/blob/master/Data_structure.md)
 - [Virtual Environments in Python](https://github.com/ashki23/Python-notes/blob/master/Virtual_environments.md)
 - [Lambda function](https://github.com/ashki23/Python-notes/blob/master/Lambda.md)
