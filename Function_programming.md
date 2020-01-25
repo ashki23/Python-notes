@@ -1,10 +1,16 @@
 # Function programming in Python
 *[Ashkan Mirzaee](https://ashki23.github.io/index.html) - January 2020*
 
-For efficiently programming with Python, we need to learn how to write functions. In this article we will be familiar with function programming in Python 3 and learn about some Python's built-in functions through several examples. As a prerequisite for this tutorial, it is better to learn the following first:
+For efficiently programming with Python, we need to learn how to write functions. In this article we will be familiar with basic of function programming in Python 3 and learn about some Python's built-in functions through several examples. As a prerequisite for this tutorial, it is better to learn the following first:
 
 - [Python data structure](https://ashki23.github.io/python_str.html)
 - [Control flow tools in Python](https://docs.python.org/3/tutorial/controlflow.html)
+
+The following is a good resource to learn more about function programming subject:
+
+- [Functional Programming HOWTO](https://docs.python.org/3.8/howto/functional.html)
+
+---
 
 ## Defining functions
 We can use Python to define any function that we want. A function should include:
@@ -61,7 +67,7 @@ We can also use **recursive** method such that:
 def mult_rec(a, b):
   """
   Two integers multiplication by recursion.
-  Note that a*b is equal to a + a(b-1).
+  Note that a * b is equal to a + a(b-1).
   """
   if b == 1:
     return a
@@ -73,7 +79,7 @@ mult_rec(12, 13)
 ```
 
 At each iteration, both iterative and recursive functions follow this pattern to find `12 * 13`:
-```
+```python
 12
 12 + 12
 12 + 12 + 12
@@ -165,7 +171,7 @@ def fib_rec(n):
 ```
 
 Here, computative method provides an estimation (which is actually a very good estimation) of the Fibonacci number and recursive method requires a lot of time as `n` gets bigger since at each iteration it needs to compute two `fib_rec` such that (for `n = 5`):
-```
+```python
               fib_rec(5)
            _______|________
           |                |
@@ -250,7 +256,7 @@ Map and filter are two Python built-in functions that let us to expand our funct
 map(function, iterable, ...)
 ```
 
-When a *function*, that could be another built-in function or a created function by **def** or **lambda**, applies on each element of an *iterable* list. For an example let's assume we have sales rate for each month during each season of a year and are interested to know what is the total seasonal sales:
+When a *function*, that could be another built-in function or a created function by **def** or **lambda**, applies on each element of an *iterable* (i.e. lists, tuples or dictionaries - see [here](https://docs.python.org/3.8/howto/functional.html#iterators) to learn more). For an example let's assume we have sales rate for each month during each season of a year and are interested to know what is the total seasonal sales:
 ```python
 sale = [(1,3,4,5),(3,4,5,6),(7,6,5,5),(8,6,9,1)]
 seasonal = list(map(sum, sale))
@@ -285,7 +291,7 @@ list(map(round, flt, [2]*len(flt)))
 ## [2.07, 3.99, 4.79, 5.35]
 ```
 
-In the above function we have two *iterables*, one a list of numbers (`flt`) and one a list of floating numbers (`[2,2,2,2]`).
+In the above function we have two *iterable*s, one a list of numbers (`flt`) and one a list of floating numbers (`[2,2,2,2]`).
 
 We can also use **map** to create new functions. For instance, let's define `zip_diy` function that do same operation as Python `zip` function:
 ```python
@@ -309,7 +315,7 @@ As you noticed, **map** in `zip_diy` includes a **lambda** function that generat
 filter(function, iterable)
 ```
 
-When the *function* is required to return a boolean type (`True/False`) by testing each element of the `iterable`. For an example let's select numbers greater than `22` in `number` list in below:
+When the *function* is required to return a boolean type (`True/False`) by testing each element of the *iterable*. For an example let's select numbers greater than **22** in `number` list in below:
 ```python
 number = [88,22,11,33,2,99]
 list(filter(lambda x: x > 22, number))
