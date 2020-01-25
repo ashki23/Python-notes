@@ -10,11 +10,11 @@
 
 ---
 
-## Python data types
-Different types of data in Python are:
+## Python object types
+Most common types in Python are:
 
 - Strings `str`
-- Numbers `int` `float`
+- Numbers `int` `float` `complex`
 - Booleans `bool`
 - None `NoneType`
 - Lists `[]`
@@ -23,36 +23,26 @@ Different types of data in Python are:
 - Dictionaries `{key:value}`
 
 ``` python
-# All types
-for element in ['a', True, None, 123, 0.777, [1,2], (1,2), {1,2}, {'key':1}]:
+for element in ['a', True, None, 123, 0.777, 8j, [1,2], (1,2), {1,2}, {'key':1}]:
     print(type(element))
 ## <class 'str'>
 ## <class 'bool'>
 ## <class 'NoneType'>
 ## <class 'int'>
 ## <class 'float'>
+## <class 'complex'>
 ## <class 'list'>
 ## <class 'tuple'>
 ## <class 'set'>
 ## <class 'dict'>
+```
+To learn more about the built-in types, review Python standard types in [here](https://docs.python.org/3.8/library/stdtypes.html). 
 
-# Strings
-single = 'this is a string'
-type(single)
-## <class 'str'>
-double = "this is also a string"
-type(double)
-## <class 'str'>
+### Characteristics
 
-multiline = '''
-this is
-also a string
-in multiple lines
-'''
-type(multiline)
-## <class 'str'>
-
-'some text' + ' MORE TEXT'
+Strings, tuples and lists can be **concatenated**:
+```python
+'some text ' + 'MORE TEXT'
 ## some text MORE TEXT
 
 'repetition ' * 3
@@ -72,16 +62,90 @@ type(multiline)
 (2,4,'six') * 2
 ## (2, 4, 'six', 2, 4, 'six')
 ```
+Lists, dictionaries and sets are **mutable**. Mutable objects can change their value but keep the same object (same `id()`):
+```python
+a = [1,2,3]
+id(a)
+## 4504081480
+a += [4,5]
+a
+## [1, 2, 3, 4, 5]
+id(a)
+## 4504081480
+```
 
-### Converting between data types
-We can use the following commands to convert data to other types:
+Numbers, strings and tuples are **immutable**. An object with a fixed value:
+```python
+a = 2
+id(a)
+## 4499865296
+a += 3
+a
+## 5
+id(a)
+## 4499865392
+```
 
-- `str()` creates a string
-- `int()` creates an integer
-- `float()` creates a float
-- `bool()` creates a boolean
-- `list()` creates a list
-- `tuple()` creates a tuple
+Strings, tuples, lists and dictionaries are **subscriptable** objects:
+```python
+sw = 'Python'
+sw[0]
+## 'P'
+
+sw[0:1]
+## 'Py'
+
+sw[::2]
+## 'Pto'
+```
+
+In general, numbers in the indexing square brackets can be in one of the following formats:
+```python
+[element]
+[begin:end]
+[begin:end:step]
+```
+
+When negative numbers can be interpreted as inverse actions:
+```python
+sw[-1] # last element
+## 'n'
+
+sw[::-1] # step 1 but in inverse order
+## 'nohtyP'
+```
+
+And empty clones could interpret as all:
+```python
+sw[:]
+## 'Python'
+
+sw[::]
+## 'Python'
+```
+
+As a summary review the following table:
+
+Type|Concatenate|Subscriptable|Mutable
+---|---|---|---
+Number|No|No|No
+String|Yes|Yes|No
+Tuple|Yes|Yes|No
+List|Yes|Yes|Yes
+Dict|No|Yes|Yes
+Set|No|No|Yes
+
+
+### Conversion
+We can use the following commands to convert objects to other types:
+
+- `str()` create a string
+- `int()` create an integer
+- `float()` create a float
+- `complex()` create a complex number 
+- `bool()` create a boolean
+- `list()` create a list
+- `tuple()` create a tuple
 - `set()` create a set
 - `dict()` create a dictionary
 
@@ -119,58 +183,53 @@ A list is a set of objects enclosed by a set of square brackets (`[]`). Lists ar
 
 ``` python
 list_ = [1,3,5,7]
-print(list_)
-## [1, 3, 5, 7]
-type(list_)
-## <class 'list'>
-
 list_[0] = 100 # Lists are mutable
-print(list_)
+list_
 ## [100, 3, 5, 7]
 
 # Lists can hold any type of item
-example = [1,True,None,['word',123],'test', (0,1), {'name id': 7}]
+example = [1,True,None,['word',123],'test',(0,1),{'name id': 7}]
 ```
 
 We can use numeric index to find the elements.
 ``` python
 names = ['turtle','polar bear','elephant','penguin']
-print(names[0]) # First element
+names[0] # First element
 ## 'turtle'
 
-print(example[3]) # Fourth element
+example[3] # Fourth element
 ## 'penguin'
-print(names[:]) # Everything
+names[:] # Everything
 ## ['turtle', 'polar bear', 'elephant', 'penguin']
 
-print(names[:2]) # Everything before third element
+names[:2] # Everything before third element
 ## ['turtle', 'polar bear']
 
-print(names[2:]) # Everything after third element
+names[2:] # Everything after third element
 ## ['elephant', 'penguin']
 ```
 
 And if we use a negative index, it means get elements from the end, going backwards.
 ``` python
-print(names[-1]) # Last element
+names[-1] # Last element
 ## 'penguin'
 
-print(names[:-2]) # Everything before the last two elements
+names[:-2] # Everything before the last two elements
 ## ['turtle', 'polar bear']
 ```
 
 We can use the index multiple times to retrieve information from nested objects.
 ``` python
-print(example[3][1])
+example[3][1]
 ## 123
 ```
-Here are some of the methods of list objects:
+Here are main lists methods:
 
 - `list.append(x)` append x
 - `list.extend(x)` or `+=` extend/add x
 - `list.insert(i,x)` insert x in position i
 - `list.remove(x)` remove x
-- `list.pop(i)` remove item at position i
+- `list.pop(i)` remove item at position i (similar to `del(list[i])`)
 - `list.sort()` sort
 - `list.reverse()` reverse the order
 - `list.count(x)` count number of times x repeated
@@ -181,27 +240,27 @@ Here are some of the methods of list objects:
 ``` python
 a = [1,4,5]
 a += [2,3]
-print(a)
+a
 ## [1, 4, 5, 2, 3]
 
 a.append([6,7])
-print(a)
+a
 ## [1, 4, 5, 2, 3, [6, 7]]
 
 a.remove([6,7])
-print(a)
+a
 ## [1, 4, 5, 2, 3]
 
 a.extend([6,7])
-print(a)
+a
 ## [1, 4, 5, 2, 3, 6, 7]
 
 a.sort()
-print(a)
+a
 ## [1, 2, 3, 4, 5, 6, 7]
 
 a.reverse()
-print(a)
+a
 ## [7, 6, 5, 4, 3, 2, 1]
 
 a.count(5)
@@ -210,95 +269,214 @@ a.index(5)
 ## 2
 
 a.clear()
-print(a)
+a
 ## []
 ```
 
-Be cautious when set a list is equal to another list. It might change list unintentionally, see the example in below:
+Be cautious when set a list equal to another list. It might change list unintentionally, see the example in below:
 ``` python
 list1 = [1, 2, 3]
 list2 = list1
 list2 += [4, 5]
-print(list1)
+list1
 ## [1, 2, 3, 4, 5]
-print(list2)
+list2
 ## [1, 2, 3, 4, 5]
-print(id(list1))
+id(list1)
 ## 139724935851336
-print(id(list2))
+id(list2)
 ## 139724935851336
 ```
 
-As we can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well. We can work on `list2` without changing `list1` by using `.copy()`, for instance:
+As we can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well. 
+
+We can work on `list2` without changing `list1` by using `.copy()` or clone `[:]`. For instance:
 ``` python
 list1 = [1,2,3]
-list2 = list1.copy()
+list2 = list1.copy() # or list2 = list1[:]
 list2 += [4,5] 
-print(list1)
+list1
 ## [1, 2, 3]
-print(list2)
+list2
 ## [1, 2, 3, 4, 5]
-print(id(list1))
+id(list1)
 ## 139724935851400
-print(id(list2))
+id(list2)
 ## 139724935851208
 ```
 
 Iterating through lists:
 ``` python
-print([x**2 for x in range(5)])
+[x**2 for x in range(5)]
 ## [0, 1, 4, 9, 16]
 
 nested = []
 p = [1,2,3]
 for i in p:
     nested.append([(x,i) for x in p])
-print(nested)
+nested
 ## [[(1, 1), (2, 1), (3, 1)], 
 ##  [(1, 2), (2, 2), (3, 2)], 
 ##  [(1, 3), (2, 3), (3, 3)]]
 ```
 
-### Tuples and sets
+### Tuples
 A **tuple** consists of a number of values separated by commas. Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
-
-A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
-``` python
-# Tuples
+```python
 tp = 1399,'hello',1400 # It might include parentheses or not
 type(tp)
 ## <class 'tuple'>
-print(tp)
-(1399, 'hello', 1400)
-print(tp[0])
-1399
+
+tp
+## (1399, 'hello', 1400)
+
+tp[0]
+## 1399
 
 tp[0] = 1390 # Tuples are immutable
 ## Traceback (most recent call last):
 ##   File "<stdin>", line 1, in <module>
 ## TypeError: 'tuple' object does not support item assignment
 
-singleton = 'hello', # A tuple should include at leat one comma (,)
-print(singleton)
+singleton = 'hello', # A tuple should include at least a comma (,)
+singleton
 ## ('hello',)
+```
 
-# Sets
+Since tuples are immutable, there are only two methods:
+
+- `tuple.count(x)` count number of times x repeated
+- `tuple.index(x)` find index of item x
+
+By tuples we can change the variables at the same time. Let assume we have two variables `a = 10` and `b = 20` and want `a = b = 20` and `b = a + b = 30`. For example:
+```python
+a = 10
+b = 20
+a = b 
+b = a + b
+(a,b)
+## (20, 40) # we wanted (20, 30)
+
+## Using tuple
+a = 10
+b = 20
+a, b = (b, a + b) # or a, b = b, a + b
+(a,b)
+## (20, 30)
+```
+
+### Dictionaries
+Dictionaries (also called dicts) are key data structure including a set of *keys* and *values*. Unlike sequences (e.g. lists and tuples) which are indexed by a range of numbers, dictionaries are indexed by **unique** and **immutable** *keys*. At the same time, *values* of the list could be **any type** (mutable or immutable) and duplicated. The main operations on a dictionary are storing a *value* with some *key* and extracting *value* by given *key*.
+``` python
+example = {}
+type(example)
+## <class 'dict'>
+
+example['first key'] = 'value'
+example[2] = 'two'
+example['third key'] = 3
+example
+## {'first key': 'value', 2: 'two', 'third key': 3}
+
+example['first key']
+## 'value'
+
+list(example.keys())
+## ['first key', 2, 'third key']
+
+list(example.values())
+## ['value', 'two', 3]
+
+list(example.items())
+## [('first key', 'value'), (2, 'two'), ('third key', 3)]
+
+example.get('third key')
+## 3
+
+example.update({2:'update value', 'new key':123 })
+example
+## {'first key': 'value', 2: 'update value', 'third key': 3, 'new key': 123}
+```
+
+Here are some of dictionaries methods:
+
+- `dict.update()` update/add items
+- `dict.popitem()` remove an item
+- `dict.pop(k)` remove item with key k
+- `dict.keys()` return keys
+- `dict.values()` return values 
+- `dict.items()` return items
+- `dict.get(k)` return value for key k
+- `dict.copy()` copy dict
+- `dict.clear()` clear dict
+
+Iterating through dicts:
+``` python
+## Example 1: counting and sorting
+color = ['blue', 'red', 'white', 'green', 'green', 'red', 'red', 'white', 'red', 'green']
+col = {x:color.count(x) for x in color}
+col
+## {'blue': 1, 'red': 4, 'white': 2, 'green': 3}
+
+c = {k:col[k] for k in sorted(col,key = col.get,reverse = True)}
+c
+## {'red': 4, 'green': 3, 'white': 2, 'blue': 1}
+
+## Example 2: make dict elements uppercase
+{x.upper():y for x,y in c.items()}
+## {'RED': 4, 'GREEN': 3, 'WHITE': 2, 'BLUE': 1}
+```
+
+For another example, let's consider a list of dictionaries including production rate of two products, id 23 and id 35, in years 2005 and 2010:
+``` python
+exmp = [{'id':23,'year':2005,'production':2305},{'id':35,'year':2005,'production':3505},{'id':23,'year':2010,'production':2310},{'id':35,'year':2010,'production':3510}]
+```
+
+We can make a dictionary of production rates for each `id_year` combination such that:
+``` python
+dict_ = {}
+for i in exmp:
+  dict_['%s_%s' % (i['id'],i['year'])] = i['production']
+dict_
+## {'23_2005': 2305, '35_2005': 3505, '23_2010': 2310, '35_2010': 3510}
+```
+
+To make a dictionary of list of the production rates over years, we can use `collections` module. `defaultdict(list)` makes a default dictionary of lists such that:
+``` python
+import collections
+dt_ = collections.defaultdict(list)
+for i in exmp:
+  dt_[i['id']].append(i['production'])
+dict(dt_)
+## {23: [2305, 2310], 35: [3505, 3510]}
+```
+
+Now let's find total production over years:
+``` python
+for i in dt_:
+  dt_[i] = sum(dt_[i])
+dict(dt_)
+## {23: 4615, 35: 7015}
+```
+
+Also, the `dict()` constructor can accept an iterator that returns a finite stream of `(key, value)` tuples:
+```python
+L = [('Italy', 'Rome'), ('France', 'Paris'), ('US', 'Washington DC')]
+dict(iter(L))
+{'Italy': 'Rome', 'France': 'Paris', 'US': 'Washington DC'}
+```
+
+### Sets
+A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+``` python
 st = {12,13,13,15,12,15}
-print(st)
+st
 ## {12, 13, 15}
 
-print(st[1])
+st[1]
 ## Traceback (most recent call last):
 ##   File "<stdin>", line 1, in <module>
 ## TypeError: 'set' object does not support indexing
-
-si = {'singleton'}
-print(si)
-## {'singleton'}
-
-sii = set('singleton')
-print(sii)
-## {'l', 'g', 'n', 's', 't', 'i', 'e', 'o'}
 ```
 
 **Note**: to create empty sets use `set()` because `{}` considered as empty dictionary in python.
@@ -310,56 +488,13 @@ for element in [[], (), {}]:
 ## <class 'dict'>
 ```
 
+Sets have several methods including set operations such as `union`, `intersection`, and `difference`.
+
 Iterating through sets:
 ``` python
-print({x**2 for x in [1,2,2,1,3]})
+{x**2 for x in [1,2,2,1,3]}
 ## {1, 4, 9}
 ```
 
-### Dictionaries
-Dictionaries (also called dicts) are another key data structure. Unlike sequences (lists, and tuples), which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type (e.g. strings and numbers). The main operations on a dictionary are storing a value with some key and extracting the value given the key.
-``` python
-example = {}
-type(example)
-## <class 'dict'>
-
-example['first key'] = 'value'
-example[2] = 'two'
-example['third key'] = 3
-print(example)
-## {'first key': 'value', 2: 'two', 'third key': 3}
-print(example['first key'])
-## 'value'
-
-k = list(example.keys())
-print(k)
-## ['first key', 2, 'third key']
-
-v = list(example.values())
-print(v)
-## ['value', 'two', 3]
-```
-
-Here are some of the methods of dict objects:
-
-- `dict.update()` updates/adds element 
-- `dict.popitem()` removes arbitrary element
-- `dict.pop(k)` removes element k
-- `dict.keys()` returns keys
-- `dict.items()` returns items
-- `dict.get(k)` returns values for element k
-- `dict.copy()` copes dict
-- `dict.clear()` clears dict
-
-Iterating through dicts:
-``` python
-color = ['blue', 'red', 'white', 'green', 'green', 'red', 'red', 'white', 'red', 'green']
-col = {x:color.count(x) for x in color}
-print(col)
-## {'blue': 1, 'red': 4, 'white': 2, 'green': 3}
-c = {k:col[k] for k in sorted(col,key = col.get,reverse = True)}
-print(c)
-## {'red': 4, 'green': 3, 'white': 2, 'blue': 1}
-```
 ---
 Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
