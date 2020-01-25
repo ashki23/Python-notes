@@ -83,7 +83,7 @@ Another fun example is finding palindrome words:
 def pal(x):
   return x == x[::-1]
 ## Or
-pal = lambda x: x == [x::-1]
+pal = lambda x: x == x[::-1]
 
 pal('pop')
 ## True
