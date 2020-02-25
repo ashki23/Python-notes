@@ -69,6 +69,9 @@ re.findall('(?<=; )[\w ]*', 'I want everything after ; this part is important') 
 re.findall('[\w ]*(?= ;)', 'I want everything after ; this part is important')[:-1] # before
 # ['I want everything after']
 
+mm = re.match('[\w ]*(?= ;)', 'I want everything after ; this part is important') # before
+mm.group(0)
+# 'I want everything after'
 ```
 
 ---
