@@ -63,6 +63,12 @@ re.findall('([A-Z][a-z]*)', 'today is Oct 10') # find any capital word ([A-Z]) a
 re.findall('[A-Z][a-z]{2} \d{2}', 'today is Oct 10') # find any capital letter ([A-Z]) followed by two small letters ([a-z]{2}) and a space ( ) and two digits (\d{2})
 # ['Oct 10']
 
+re.findall('(?<=; )[\w ]*', 'I want everything after ; this part is important') # after
+# ['this part is important']
+
+re.findall('[\w ]*(?= ;)', 'I want everything after ; this part is important')[:-1] # before
+# ['I want everything after']
+
 ```
 
 ---
