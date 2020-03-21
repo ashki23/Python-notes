@@ -54,19 +54,21 @@ deriv2nd(f,2)
 # 12.002843163827492
 ```
  
-We know that the second derivative of `f(x) = x^3` is equal to `3*x^2` and is equal to 12 for `x = 2`.
+We know that the second derivative of `f(x) = x^3` is equal to `6*x` and is equal to 12 for `x = 2`.
 
-For another example let's replace an string in a mathematical formula with a number and find the answer:
+Also, we can replace an string in a mathematical formula with a number to find the answer. For example, lets find the answer for `6*x` at `x = 2`:
 ```python
 re = lambda f,x,z: eval(f.replace(str(x),str(z)))
  
 # Example
-f = '2*x + 5'
+f = '3*x'
 re(f,'x',2)
-# 9
+# 12
 ```
- 
-Let's find Euclidean norm of a vector by:
+
+Note that we can find the derivative of functions by using **SymPy** package.
+
+And for another example let's find Euclidean norm of a vector by:
 ```python
 pnorm = lambda v,p=2: sum([abs(x)**p for x in v])**(1/p)
  
