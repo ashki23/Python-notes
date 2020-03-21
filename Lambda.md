@@ -5,7 +5,7 @@ Python includes a quick one-line construction of functions that is often conveni
 ```python
 f = lambda x: x**3 + 6
 f(2)
-# 14
+## 14
 ```
 
 Which is same as:
@@ -13,14 +13,14 @@ Which is same as:
 def f(x):
   return x**3 + 6
 f(2)
-# 14
+## 14
 ```
 
 For another example:
 ```python
 g = lambda x,y,z: x*y/z
 g(2,3,4)
-# 1.5
+## 1.5
 ```
 
 which is same as:
@@ -28,7 +28,7 @@ which is same as:
 def g(x,y,z):
   return x*y/z
 g(2,3,4)
-# 1.5
+## 1.5
 ```
 
 In general,
@@ -48,25 +48,36 @@ def deriv2nd(f,x,h=1E-6):
   r = (f(x-h) - 2*f(x) + f(x+h))/float(h**2) 
   return r
  
-# Example
+## Example
 f = lambda x: x**3
 deriv2nd(f,2)
-# 12.002843163827492
+## 12.002843163827492
 ```
  
-We know that the second derivative of `f(x) = x^3` is equal to `6*x` and is equal to 12 for `x = 2`.
+We know that the second derivative of `f(x) = x**3` is equal to `6*x` and is equal to 12 for `x = 2`.
 
 Also, we can replace an string in a mathematical formula with a number to find the answer. For example, lets find the answer for `6*x` at `x = 2`:
 ```python
 re = lambda f,x,z: eval(f.replace(str(x),str(z)))
  
-# Example
+## Example
 f = '3*x'
 re(f,'x',2)
-# 12
+## 12
 ```
 
-Note that we can find the derivative of functions by using **SymPy** package.
+Note that we can find the derivative of functions by using **SymPy** package, for example:
+```python
+import sympy
+x = symbols('x')
+f = x**3
+ff = f.diff(x,2)
+ff
+## 6*x
+
+ff.subs({x:2})
+## 12
+```
 
 And for another example let's find Euclidean norm of a vector by:
 ```python
@@ -75,9 +86,9 @@ pnorm = lambda v,p=2: sum([abs(x)**p for x in v])**(1/p)
 # Example
 v = [2,3,4]
 pnorm(v)
-# 5.385164807134504
+## 5.385164807134504
 pnorm(v,1)
-# 9.0
+## 9.0
 ```
  
 Another fun example is finding palindrome words:
