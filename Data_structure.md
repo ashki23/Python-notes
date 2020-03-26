@@ -14,7 +14,7 @@
 Most common types in Python are:
 
 - Strings `str`
-- Numbers `int` `float` `complex`
+- Numbers `int`, `float`, `complex`
 - Booleans `bool`
 - None `NoneType`
 - Lists `[]`
@@ -97,6 +97,10 @@ sw[0:1]
 
 sw[::2]
 ## 'Pto'
+
+names = ['turtle','polar bear','elephant','penguin']
+names[:2]
+## ['turtle', 'polar bear']
 ```
 
 In general, numbers in the indexing square brackets can be in one of the following formats:
@@ -113,6 +117,12 @@ sw[-1] # last element
 
 sw[::-1] # step 1 but in inverse order
 ## 'nohtyP'
+
+names[:-2] # everything before the last two elements
+## ['turtle', 'polar bear']
+
+names[::-1]
+## ['penguin', 'elephant', 'polar bear', 'turtle']
 ```
 
 And empty clones could interpret as all:
@@ -122,6 +132,9 @@ sw[:]
 
 sw[::]
 ## 'Python'
+
+names[:]
+## ['turtle', 'polar bear', 'elephant', 'penguin']
 ```
 
 As a summary review the following table:
@@ -134,7 +147,6 @@ Tuple|Yes|Yes|No
 List|Yes|Yes|Yes
 Dict|No|Yes|Yes
 Set|No|No|Yes
-
 
 ### Conversion
 We can use the following commands to convert objects to other types:
@@ -171,12 +183,58 @@ set([1,3,5,1,3,5])
 ---
 
 ## Data structures
-There are four major [data structures](https://docs.python.org/3.7/tutorial/datastructures.html) in Python:
+There are five major [data structures](https://docs.python.org/3.7/tutorial/datastructures.html) in Python:
 
--   Lists: `list()` `[]`
--   Tuples: `tuple()` `()`
--   Sets: `set()` `{}`
--   Dictionaries: `dict()` `{key:value}`
+- Strings: `srt()`, `' '`
+- Lists: `list()`, `[]`
+- Tuples: `tuple()`, `()`
+- Sets: `set()`, `{}`
+- Dictionaries: `dict()`, `{key:value}`
+
+### Strings
+One of the way that data can be stored in Python is strings and as we discussed they are **immutable** and **subscriptable** objects that can be **concatenated** together. In python, any thing inside single or double quotes (`' '` or `" "`) considers as string. There are several methods available for strings and the following are some of the main methods for strings:
+
+- `str.capitalize()` capitalize
+- `str.lower()` lowercase
+- `str.upper()` uppercase
+- `str.find(x)` find index of character x
+- `str.index(x)` index of x character (similar to `.find(x)` if x is in the string) 
+- `str.count(x)` count how many times x repeated
+- `str.replace(x,y)` replace character x with y
+- `str.split('sep')` split an string to a list of strings based on the separator `sep` (can be empty `''`) 
+- `sep.join(list)` join a list of strings to make an string with separator `sep` (can be empty `''`) - opposite of `.split()`
+- `str.center('chr', num)` see an example in below
+
+For example:
+```python
+name = 'python'
+name.capitalize()
+## 'Python'
+
+name.upper()
+## 'PYTHON'
+
+name.index('p')
+## 0
+
+name2 = name.replace('n', 'n3').replace('p', ',p')
+name2
+## ',python3'
+
+nm = name + name2
+nm
+## 'python,python3'
+
+nm_split = nm.split(',')
+nm_split
+## ['python', 'python3']
+
+','.join(nm_split)
+## 'python,python3'
+
+' This is a test '.center(30,'=')`
+## '======= This is a test ======='
+```
 
 ### Lists
 A list is a set of objects enclosed by a set of square brackets (`[]`). Lists are **mutable**, and their elements are usually **homogeneous** and are accessed by iterating over the list.
@@ -189,40 +247,15 @@ list_
 
 # Lists can hold any type of item
 example = [1,True,None,['word',123],'test',(0,1),{'name id': 7}]
-```
 
-We can use numeric index to find the elements.
-``` python
-names = ['turtle','polar bear','elephant','penguin']
-names[0] # First element
-## 'turtle'
+# Indexing
+list_[1:3]
+## [3, 5]
 
-example[3] # Fourth element
-## 'penguin'
-names[:] # Everything
-## ['turtle', 'polar bear', 'elephant', 'penguin']
-
-names[:2] # Everything before third element
-## ['turtle', 'polar bear']
-
-names[2:] # Everything after third element
-## ['elephant', 'penguin']
-```
-
-And if we use a negative index, it means get elements from the end, going backwards.
-``` python
-names[-1] # Last element
-## 'penguin'
-
-names[:-2] # Everything before the last two elements
-## ['turtle', 'polar bear']
-```
-
-We can use the index multiple times to retrieve information from nested objects.
-``` python
 example[3][1]
 ## 123
 ```
+
 Here are main lists methods:
 
 - `list.append(x)` append x
@@ -310,6 +343,9 @@ Iterating through lists:
 [x**2 for x in range(5)]
 ## [0, 1, 4, 9, 16]
 
+[x**2 for x in range(5) if x**2 < 10]
+## [0, 1, 4, 9]
+
 nested = []
 p = [1,2,3]
 for i in p:
@@ -366,8 +402,8 @@ a, b = (b, a + b) # or a, b = b, a + b
 ```
 
 ### Dictionaries
-Dictionaries (also called dicts) are key data structure including a set of *keys* and *values*. Unlike sequences (e.g. lists and tuples) which are indexed by a range of numbers, dictionaries are indexed by **unique** and **immutable** *keys*. At the same time, *values* of the list could be **any type** (mutable or immutable) and duplicated. The main operations on a dictionary are storing a *value* with some *key* and extracting *value* by given *key*.
-``` python
+Dictionaries (also called dicts) are key data structure including a set of *keys* and *values*. Unlike sequences (e.g. lists and tuples) which are indexed by a range of numbers, dictionaries are indexed by **unique** and **immutable** *keys*. At the same time, *values* of the list could be **any type** (mutable or immutable) and duplicated. The main operations on a dictionary are storing a *value* with some *key* and extracting *value* by given *key*. 
+```python
 example = {}
 type(example)
 ## <class 'dict'>
@@ -380,22 +416,6 @@ example
 
 example['first key']
 ## 'value'
-
-list(example.keys())
-## ['first key', 2, 'third key']
-
-list(example.values())
-## ['value', 'two', 3]
-
-list(example.items())
-## [('first key', 'value'), (2, 'two'), ('third key', 3)]
-
-example.get('third key')
-## 3
-
-example.update({2:'update value', 'new key':123 })
-example
-## {'first key': 'value', 2: 'update value', 'third key': 3, 'new key': 123}
 ```
 
 Here are some of dictionaries methods:
@@ -409,6 +429,30 @@ Here are some of dictionaries methods:
 - `dict.get(k)` return value for key k
 - `dict.copy()` copy dict
 - `dict.clear()` clear dict
+
+For example:
+``` python
+state = {'new york': 'NY', 'missouri': 'MS', 'california': 'CA'}
+
+list(state.items())
+## [('new york', 'NY'), ('missouri', 'MS'), ('california', 'CA')]
+
+list(state.keys())
+## ['new york', 'missouri', 'california']
+
+list(state.values())
+## ['NY', 'MS', 'CA']
+
+state.get('missouri')
+## 'MS'
+
+state.update({'missouri': 'MO', 'Texas': 'TX' })
+state
+## {'new york': 'NY', 'missouri': 'MO', 'california': 'CA', 'Texas': 'TX'}
+
+state.get('missouri')
+## 'MO'
+```
 
 Iterating through dicts:
 ``` python
@@ -425,6 +469,11 @@ c
 ## Example 2: make dict elements uppercase
 {x.upper():y for x,y in c.items()}
 ## {'RED': 4, 'GREEN': 3, 'WHITE': 2, 'BLUE': 1}
+
+## Example 3: filtering dicts by value
+d = {'a': 10, 'b': 12, 'c': 20}
+{x:y for x,y in d.items() if y >= 12}
+## {'b': 12, 'c': 20}
 ```
 
 For another example, let's consider a list of dictionaries including production rate of two products, id 23 and id 35, in years 2005 and 2010:
