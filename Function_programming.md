@@ -3,7 +3,7 @@
 
 For efficiently programming with Python, we need to learn how to write functions. In this article we will be familiar with basic of function programming in Python 3 and learn about some Python's built-in functions through several examples. As a prerequisite for this tutorial, it is better to learn the following first:
 
-- [Python data structure](https://ashki23.github.io/python_str.html)
+- [Python data structure](https://ashki23.github.io/python-str.html)
 - [Control flow tools in Python](https://docs.python.org/3/tutorial/controlflow.html)
 
 The following is a good resource to learn more about function programming subject:
