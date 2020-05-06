@@ -1,5 +1,4 @@
 # Lambda function
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 Python includes a quick one-line construction of functions that is often convenient to make your code compact. For example:
 ```python
