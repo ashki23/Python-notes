@@ -1,5 +1,4 @@
 # String formatting or interpolation operator
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - October 2019*
 
 String objects have one unique built-in operation: the `%` operator (modulo). This is also known as the string formatting or interpolation operator. Given format `%` values (where format is a string), `%` conversion specifications in format are replaced with zero or more elements of values ([Python standard library](https://docs.python.org/3/library/stdtypes.html?highlight=string%20interpolation#printf-style-string-formatting)). 
 
