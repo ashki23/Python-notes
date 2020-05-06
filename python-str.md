@@ -1,25 +1,40 @@
 # Python data structures
+*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
-[Python](https://www.python.org/) is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple approach to object-oriented programming. To learn Python, first we need to learn how Python treats with data. In this article we will learn about data types and structures in Python 3 through several examples. You may find more about Python programming at:
+[Python](https://www.python.org/) is an easy to learn, powerful
+programming language. It has efficient high-level data structures and a
+simple approach to object-oriented programming. To learn Python, first
+we need to learn how Python treats with data. In this article we will
+learn about data types and structures in Python 3 through several
+examples. You may find more about Python programming at:
 
-- [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/)
-- [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/)
-- [Analysis pipelines with Python](https://hpc-carpentry.github.io/hpc-python/)
-- [The Python Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+  - [Programming with
+    Python](http://swcarpentry.github.io/python-novice-inflammation/)
+  - [Plotting and Programming in
+    Python](http://swcarpentry.github.io/python-novice-gapminder/)
+  - [Analysis pipelines with
+    Python](https://hpc-carpentry.github.io/hpc-python/)
+  - [The Python
+    Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+  - [Function programming in
+    Python](https://ashki23.github.io/python-fun.html)
 
----
+-----
 
 ## Python object types
+
 Most common types in Python are:
 
-- Strings `str`
-- Numbers `int`, `float`, `complex`
-- Booleans `bool`
-- None `NoneType`
-- Lists `[]`
-- Tuples `()`
-- Sets `{}`
-- Dictionaries `{key:value}`
+  - Strings `str`
+  - Numbers `int`, `float`, `complex`
+  - Booleans `bool`
+  - None `NoneType`
+  - Lists `[]`
+  - Tuples `()`
+  - Sets `{}`
+  - Dictionaries `{key:value}`
+
+<!-- end list -->
 
 ``` python
 for element in ['a', True, None, 123, 0.777, 8j, [1,2], (1,2), {1,2}, {'key':1}]:
@@ -35,12 +50,15 @@ for element in ['a', True, None, 123, 0.777, 8j, [1,2], (1,2), {1,2}, {'key':1}]
 ## <class 'set'>
 ## <class 'dict'>
 ```
-To learn more about the built-in types, review Python standard types in [here](https://docs.python.org/3.8/library/stdtypes.html). 
+
+To learn more about the built-in types, review Python standard types in
+[here](https://docs.python.org/3.8/library/stdtypes.html).
 
 ### Characteristics
 
 Strings, tuples and lists can be **concatenated**:
-```python
+
+``` python
 'some text ' + 'MORE TEXT'
 ## some text MORE TEXT
 
@@ -61,8 +79,11 @@ Strings, tuples and lists can be **concatenated**:
 (2,4,'six') * 2
 ## (2, 4, 'six', 2, 4, 'six')
 ```
-Lists, dictionaries and sets are **mutable**. Mutable objects can change their value but keep the same object (same `id()`):
-```python
+
+Lists, dictionaries and sets are **mutable**. Mutable objects can change
+their value but keep the same object (same `id()`):
+
+``` python
 a = [1,2,3]
 id(a)
 ## 4504081480
@@ -73,8 +94,10 @@ id(a)
 ## 4504081480
 ```
 
-Numbers, strings and tuples are **immutable**. An object with a fixed value:
-```python
+Numbers, strings and tuples are **immutable**. An object with a fixed
+value:
+
+``` python
 a = 2
 id(a)
 ## 4499865296
@@ -86,7 +109,8 @@ id(a)
 ```
 
 Strings, tuples, lists and dictionaries are **subscriptable** objects:
-```python
+
+``` python
 sw = 'Python'
 sw[0]
 ## 'P'
@@ -102,15 +126,18 @@ names[:2]
 ## ['turtle', 'polar bear']
 ```
 
-In general, numbers in the indexing square brackets can be in one of the following formats:
-```python
+In general, numbers in the indexing square brackets can be in one of the
+following formats:
+
+``` python
 [element]
 [begin:end]
 [begin:end:step]
 ```
 
 When negative numbers can be interpreted as inverse actions:
-```python
+
+``` python
 sw[-1] # last element
 ## 'n'
 
@@ -125,7 +152,8 @@ names[::-1]
 ```
 
 And empty clones could interpret as all:
-```python
+
+``` python
 sw[:]
 ## 'Python'
 
@@ -138,27 +166,34 @@ names[:]
 
 As a summary review the following table:
 
-Type|Concatenate|Subscriptable|Mutable
----|---|---|---
-Number|No|No|No
-String|Yes|Yes|No
-Tuple|Yes|Yes|No
-List|Yes|Yes|Yes
-Dict|No|Yes|Yes
-Set|No|No|Yes
+<div style="margin-bottom: 1rem; overflow-x: auto;">
+
+| Type   | Concatenate | Subscriptable | Mutable |
+| ------ | ----------- | ------------- | ------- |
+| Number | No          | No            | No      |
+| String | Yes         | Yes           | No      |
+| Tuple  | Yes         | Yes           | No      |
+| List   | Yes         | Yes           | Yes     |
+| Dict   | No          | Yes           | Yes     |
+| Set    | No          | No            | Yes     |
+
+</div>
 
 ### Conversion
+
 We can use the following commands to convert objects to other types:
 
-- `str()` create a string
-- `int()` create an integer
-- `float()` create a float
-- `complex()` create a complex number 
-- `bool()` create a boolean
-- `list()` create a list
-- `tuple()` create a tuple
-- `set()` create a set
-- `dict()` create a dictionary
+  - `str()` create a string
+  - `int()` create an integer
+  - `float()` create a float
+  - `complex()` create a complex number
+  - `bool()` create a boolean
+  - `list()` create a list
+  - `tuple()` create a tuple
+  - `set()` create a set
+  - `dict()` create a dictionary
+
+<!-- end list -->
 
 ``` python
 str(5) + ' five'
@@ -179,33 +214,47 @@ tuple([1,3,5])
 set([1,3,5,1,3,5])
 ## {1,3,5}
 ```
----
+
+-----
 
 ## Data structures
-There are five major [data structures](https://docs.python.org/3.7/tutorial/datastructures.html) in Python:
 
-- Strings: `srt()`, `' '`
-- Lists: `list()`, `[]`
-- Tuples: `tuple()`, `()`
-- Sets: `set()`, `{}`
-- Dictionaries: `dict()`, `{key:value}`
+There are five major [data
+structures](https://docs.python.org/3.7/tutorial/datastructures.html) in
+Python:
+
+  - Strings: `srt()`, `' '`
+  - Lists: `list()`, `[]`
+  - Tuples: `tuple()`, `()`
+  - Sets: `set()`, `{}`
+  - Dictionaries: `dict()`, `{key:value}`
 
 ### Strings
-One of the way that data can be stored in Python is strings and as we discussed they are **immutable** and **subscriptable** objects that can be **concatenated** together. In python, any thing inside single or double quotes (`' '` or `" "`) considers as string. There are several methods available for strings and the following are some of the main methods for strings:
 
-- `str.capitalize()` capitalize
-- `str.lower()` lowercase
-- `str.upper()` uppercase
-- `str.find(x)` find index of character x
-- `str.index(x)` index of x character (similar to `.find(x)` if x is in the string) 
-- `str.count(x)` count how many times x repeated
-- `str.replace(x,y)` replace character x with y
-- `str.split('sep')` split an string to a list of strings based on the separator `sep` (can be empty `''`) 
-- `sep.join(list)` join a list of strings to make an string with separator `sep` (can be empty `''`) - opposite of `.split()`
-- `str.center('chr', num)` see an example in below
+One of the way that data can be stored in Python is strings and as we
+discussed they are **immutable** and **subscriptable** objects that can
+be **concatenated** together. In python, any thing inside single or
+double quotes (`' '` or `" "`) considers as string. There are several
+methods available for strings and the following are some of the main
+methods for strings:
+
+  - `str.capitalize()` capitalize
+  - `str.lower()` lowercase
+  - `str.upper()` uppercase
+  - `str.find(x)` find index of character x
+  - `str.index(x)` index of x character (similar to `.find(x)` if x is
+    in the string)
+  - `str.count(x)` count how many times x repeated
+  - `str.replace(x,y)` replace character x with y
+  - `str.split('sep')` split an string to a list of strings based on the
+    separator `sep` (can be empty `''`)
+  - `sep.join(list)` join a list of strings to make an string with
+    separator `sep` (can be empty `''`) - opposite of `.split()`
+  - `str.center('chr', num)` see an example in below
 
 For example:
-```python
+
+``` python
 name = 'python'
 name.capitalize()
 ## 'Python'
@@ -236,7 +285,10 @@ nm_split
 ```
 
 ### Lists
-A list is a set of objects enclosed by a set of square brackets (`[]`). Lists are **mutable**, and their elements are usually **homogeneous** and are accessed by iterating over the list.
+
+A list is a set of objects enclosed by a set of square brackets (`[]`).
+Lists are **mutable**, and their elements are usually **homogeneous**
+and are accessed by iterating over the list.
 
 ``` python
 list_ = [1,3,5,7]
@@ -257,17 +309,19 @@ example[3][1]
 
 Here are main lists methods:
 
-- `list.append(x)` append x
-- `list.extend(x)` or `+=` extend/add x
-- `list.insert(i,x)` insert x in position i
-- `list.remove(x)` remove x
-- `list.pop(i)` remove item at position i (similar to `del(list[i])`)
-- `list.sort()` sort
-- `list.reverse()` reverse the order
-- `list.count(x)` count number of times x repeated
-- `list.index(x)` find index of item x
-- `list.copy()` copy list
-- `list.clear()` clear list
+  - `list.append(x)` append x
+  - `list.extend(x)` or `+=` extend/add x
+  - `list.insert(i,x)` insert x in position i
+  - `list.remove(x)` remove x
+  - `list.pop(i)` remove item at position i (similar to `del(list[i])`)
+  - `list.sort()` sort
+  - `list.reverse()` reverse the order
+  - `list.count(x)` count number of times x repeated
+  - `list.index(x)` find index of item x
+  - `list.copy()` copy list
+  - `list.clear()` clear list
+
+<!-- end list -->
 
 ``` python
 a = [1,4,5]
@@ -305,7 +359,9 @@ a
 ## []
 ```
 
-Be cautious when set a list equal to another list. It might change list unintentionally, see the example in below:
+Be cautious when set a list equal to another list. It might change list
+unintentionally, see the example in below:
+
 ``` python
 list1 = [1, 2, 3]
 list2 = list1
@@ -320,9 +376,12 @@ id(list2)
 ## 139724935851336
 ```
 
-As we can see, by changing `list2`, `list1` is changing automatically since `list1 = list2` - they have a same ID as well. 
+As we can see, by changing `list2`, `list1` is changing automatically
+since `list1 = list2` - they have a same ID as well.
 
-We can work on `list2` without changing `list1` by using `.copy()` or clone `[:]`. For instance:
+We can work on `list2` without changing `list1` by using `.copy()` or
+clone `[:]`. For instance:
+
 ``` python
 list1 = [1,2,3]
 list2 = list1.copy() # or list2 = list1[:]
@@ -338,6 +397,7 @@ id(list2)
 ```
 
 Iterating through lists:
+
 ``` python
 [x**2 for x in range(5)]
 ## [0, 1, 4, 9, 16]
@@ -356,8 +416,15 @@ nested
 ```
 
 ### Tuples
-A **tuple** consists of a number of values separated by commas. Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are **immutable**, and usually contain a **heterogeneous** sequence of elements that are accessed via unpacking or indexing. Tuples may be input with or without surrounding parentheses.
-```python
+
+A **tuple** consists of a number of values separated by commas. Though
+tuples may seem similar to lists, they are often used in different
+situations and for different purposes. Tuples are **immutable**, and
+usually contain a **heterogeneous** sequence of elements that are
+accessed via unpacking or indexing. Tuples may be input with or without
+surrounding parentheses.
+
+``` python
 tp = 1399,'hello',1400 # It might include parentheses or not
 type(tp)
 ## <class 'tuple'>
@@ -380,11 +447,14 @@ singleton
 
 Since tuples are immutable, there are only two methods:
 
-- `tuple.count(x)` count number of times x repeated
-- `tuple.index(x)` find index of item x
+  - `tuple.count(x)` count number of times x repeated
+  - `tuple.index(x)` find index of item x
 
-By tuples we can change the variables at the same time. Let assume we have two variables `a = 10` and `b = 20` and want `a = b = 20` and `b = a + b = 30`. For example:
-```python
+By tuples we can change the variables at the same time. Let assume we
+have two variables `a = 10` and `b = 20` and want `a = b = 20` and `b =
+a + b = 30`. For example:
+
+``` python
 a = 10
 b = 20
 a = b 
@@ -401,8 +471,16 @@ a, b = (b, a + b) # or a, b = b, a + b
 ```
 
 ### Dictionaries
-Dictionaries (also called dicts) are key data structure including a set of *keys* and *values*. Unlike sequences (e.g. lists and tuples) which are indexed by a range of numbers, dictionaries are indexed by **unique** and **immutable** *keys*. At the same time, *values* of the list could be **any type** (mutable or immutable) and duplicated. The main operations on a dictionary are storing a *value* with some *key* and extracting *value* by given *key*. 
-```python
+
+Dictionaries (also called dicts) are key data structure including a set
+of *keys* and *values*. Unlike sequences (e.g. lists and tuples) which
+are indexed by a range of numbers, dictionaries are indexed by
+**unique** and **immutable** *keys*. At the same time, *values* of the
+list could be **any type** (mutable or immutable) and duplicated. The
+main operations on a dictionary are storing a *value* with some *key*
+and extracting *value* by given *key*.
+
+``` python
 example = {}
 type(example)
 ## <class 'dict'>
@@ -419,17 +497,18 @@ example['first key']
 
 Here are some of dictionaries methods:
 
-- `dict.update()` update/add items
-- `dict.popitem()` remove an item
-- `dict.pop(k)` remove item with key k
-- `dict.keys()` return keys
-- `dict.values()` return values 
-- `dict.items()` return items
-- `dict.get(k)` return value for key k
-- `dict.copy()` copy dict
-- `dict.clear()` clear dict
+  - `dict.update()` update/add items
+  - `dict.popitem()` remove an item
+  - `dict.pop(k)` remove item with key k
+  - `dict.keys()` return keys
+  - `dict.values()` return values
+  - `dict.items()` return items
+  - `dict.get(k)` return value for key k
+  - `dict.copy()` copy dict
+  - `dict.clear()` clear dict
 
 For example:
+
 ``` python
 state = {'new york': 'NY', 'missouri': 'MS', 'california': 'CA'}
 
@@ -454,6 +533,7 @@ state.get('missouri')
 ```
 
 Iterating through dicts:
+
 ``` python
 ## Example 1: counting and sorting
 color = ['blue', 'red', 'white', 'green', 'green', 'red', 'red', 'white', 'red', 'green']
@@ -475,12 +555,17 @@ d = {'a': 10, 'b': 12, 'c': 20}
 ## {'b': 12, 'c': 20}
 ```
 
-For another example, let's consider a list of dictionaries including production rate of two products, id 23 and id 35, in years 2005 and 2010:
+For another example, let’s consider a list of dictionaries including
+production rate of two products, id 23 and id 35, in years 2005 and
+2010:
+
 ``` python
 exmp = [{'id':23,'year':2005,'production':2305},{'id':35,'year':2005,'production':3505},{'id':23,'year':2010,'production':2310},{'id':35,'year':2010,'production':3510}]
 ```
 
-We can make a dictionary of production rates for each `id_year` combination such that:
+We can make a dictionary of production rates for each `id_year`
+combination such that:
+
 ``` python
 dict_ = {}
 for i in exmp:
@@ -489,7 +574,10 @@ dict_
 ## {'23_2005': 2305, '35_2005': 3505, '23_2010': 2310, '35_2010': 3510}
 ```
 
-To make a dictionary of list of the production rates over years, we can use `collections` module. `defaultdict(list)` makes a default dictionary of lists such that:
+To make a dictionary of list of the production rates over years, we can
+use `collections` module. `defaultdict(list)` makes a default dictionary
+of lists such that:
+
 ``` python
 import collections
 dt_ = collections.defaultdict(list)
@@ -499,7 +587,8 @@ dict(dt_)
 ## {23: [2305, 2310], 35: [3505, 3510]}
 ```
 
-Now let's find total production over years:
+Now let’s find total production over years:
+
 ``` python
 for i in dt_:
   dt_[i] = sum(dt_[i])
@@ -507,15 +596,22 @@ dict(dt_)
 ## {23: 4615, 35: 7015}
 ```
 
-Also, the `dict()` constructor can accept an iterator that returns a finite stream of `(key, value)` tuples:
-```python
+Also, the `dict()` constructor can accept an iterator that returns a
+finite stream of `(key, value)` tuples:
+
+``` python
 L = [('Italy', 'Rome'), ('France', 'Paris'), ('US', 'Washington DC')]
 dict(iter(L))
 {'Italy': 'Rome', 'France': 'Paris', 'US': 'Washington DC'}
 ```
 
 ### Sets
-A **set** is an **unordered** collection with **no duplicate** elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+
+A **set** is an **unordered** collection with **no duplicate** elements.
+Basic uses include membership testing and eliminating duplicate entries.
+Set objects also support mathematical operations like union,
+intersection, difference, and symmetric difference.
+
 ``` python
 st = {12,13,13,15,12,15}
 st
@@ -527,7 +623,9 @@ st[1]
 ## TypeError: 'set' object does not support indexing
 ```
 
-**Note**: to create empty sets use `set()` because `{}` considered as empty dictionary in python.
+**Note**: to create empty sets use `set()` because `{}` considered as
+empty dictionary in python.
+
 ``` python
 for element in [[], (), {}]:
     print(type(element)) 
@@ -536,13 +634,16 @@ for element in [[], (), {}]:
 ## <class 'dict'>
 ```
 
-Sets have several methods including set operations such as `union`, `intersection`, and `difference`.
+Sets have several methods including set operations such as `union`,
+`intersection`, and `difference`.
 
 Iterating through sets:
+
 ``` python
 {x**2 for x in [1,2,2,1,3]}
 ## {1, 4, 9}
 ```
 
 ---
+
 Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
