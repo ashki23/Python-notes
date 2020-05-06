@@ -1,5 +1,4 @@
 # Python data structures
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 [Python](https://www.python.org/) is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple approach to object-oriented programming. To learn Python, first we need to learn how Python treats with data. In this article we will learn about data types and structures in Python 3 through several examples. You may find more about Python programming at:
 
