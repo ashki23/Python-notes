@@ -1,5 +1,4 @@
 # Regular expression
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - October 2019*
 
 "Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language 
 embedded inside Python and made available through the re module. Using this little language, you specify the rules for the set 
