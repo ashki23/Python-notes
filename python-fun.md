@@ -1,5 +1,4 @@
 # Function programming in Python
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - January 2020*
 
 For efficiently programming with Python, we need to learn how to write functions. In this article we will be familiar with basic of function programming in Python 3 and learn about some Python's built-in functions through several examples. As a prerequisite for this tutorial, it is better to learn the following first:
 
