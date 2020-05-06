@@ -1,5 +1,4 @@
 # Virtual Environments in Python
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 "Python applications will often use packages and modules that don’t come as part of the standard library. Applications will sometimes need a specific version of a library, because the application may require that a particular bug has been fixed or the application may be written using an obsolete version of the library’s interface.
 
