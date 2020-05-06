@@ -1,5 +1,4 @@
 # Complex numbers
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html) - November 2019*
 
 Python supports computation with complex numbers. The imaginary unit is written as `j` in Python, 
 instead of `i` as in mathematics ([Mathematical functions for complex numbers](https://docs.python.org/3/library/cmath.html)). You can generate complex numbers by two following methods:
