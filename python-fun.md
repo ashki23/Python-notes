@@ -94,7 +94,7 @@ mult_rec(12, 13)
 ```
 
 At each iteration, both iterative and recursive functions follow this
-pattern to find `12 * 13`:
+pattern to find *12 \* 13*:
 
 ``` python
 12
@@ -193,8 +193,8 @@ def fib_rec(n):
 
 Here, computative method provides an estimation (which is actually a
 very good estimation) of the Fibonacci number and recursive method
-requires a lot of time as `n` gets bigger since at each iteration it
-needs to compute two `fib_rec` such that (for `n = 5`):
+requires a lot of time as *n* gets bigger since at each iteration it
+needs to compute two `fib_rec` such that (for *n = 5*):
 
 ``` python
               fib_rec(5)
@@ -274,9 +274,8 @@ re(f,'x',2)
 ## 9
 ```
 
-For last example in here, let’s **def**ine single limit formula to find
-the second derivative of **f(x) = x^3** for **x = 2** by using
-**lambda**:
+For last example in here, let’s define single limit formula to find the
+second derivative of *f(x) = x^3* for *x = 2* by using **lambda**:
 
 ``` python
 def deriv2nd(f, x, h = 1E-6):
@@ -288,8 +287,21 @@ deriv2nd(f, 2)
 ## 12.002843163827492
 ```
 
-As we know, the second derivative of `f(x) = x^3` is equal to `3 * x^2`
-which is equal to **12** for `x = 2`.
+As we know, the second derivative of *f(x) = x^3* is equal to *6 \* x*
+which is equal to *12* for *x = 2*. Note that we can find the derivative
+of functions by using `SymPy` package, for example:
+
+``` python
+import sympy
+x = symbols('x')
+f = x**3
+ff = f.diff(x,2)
+ff
+## 6*x
+
+ff.subs({x:2})
+## 12
+```
 
 ## Map and filter
 
@@ -347,8 +359,8 @@ list(map(round, flt, [2]*len(flt)))
 ## [2.07, 3.99, 4.79, 5.35]
 ```
 
-In the above function we have two *iterable*s, one a list of numbers
-(`flt`) and one a list of floating numbers (`[2,2,2,2]`).
+Note that the above function has two *iterable*s (`flt` and
+`[2,2,2,2]`).
 
 We can also use **map** to create new functions. For instance, let’s
 define `zip_diy` function that do same operation as Python `zip`
@@ -382,7 +394,7 @@ filter(function, iterable)
 
 When the *function* is required to return a boolean type (`True/False`)
 by testing each element of the *iterable*. For an example let’s select
-numbers greater than **22** in `number` list in below:
+numbers greater than *22* in a list in below:
 
 ``` python
 number = [88,22,11,33,2,99]
@@ -390,8 +402,8 @@ list(filter(lambda x: x > 22, number))
 ## [88, 33, 99]
 ```
 
-Traditionally we can use `for` loop and `if` condition to filter
-`number` list such that:
+Traditionally we can use `for` loop and `if` condition to filter the
+list such that:
 
 ``` python
 number = [88,22,11,33,2,99]
