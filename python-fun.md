@@ -57,7 +57,7 @@ In general, we can define three types of functions:
   - **iterative**, find the results by iteration (control flow tools)
   - **recursive**, find the results by recursion (function itself)
 
-In above example, we used a **computative** function to find `a * b`.
+In above example, we used a **computative** function to find *a \* b*.
 Now let’s use **iterative** method:
 
 ``` python
@@ -359,7 +359,7 @@ list(map(round, flt, [2]*len(flt)))
 ## [2.07, 3.99, 4.79, 5.35]
 ```
 
-Note that the above function has two *iterable*s (`flt` and
+Note that the above function has two *iterables* (`flt` and
 `[2,2,2,2]`).
 
 We can also use **map** to create new functions. For instance, let’s
