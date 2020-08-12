@@ -80,7 +80,7 @@ To create a new environment, use `conda create` command including names
 of the environment and required packages:
 
 ``` bash
-conda create --name <env_name> <pkg name> <pkg name> ...
+conda create --name <env_name> <pkg name> <pkg name=version> ...
 ```
 
 We also can use `--yes` flag to set up the environment without a
@@ -118,7 +118,7 @@ conda remove <pkg name>
 To see list of the installed packages within the env, use:
 
 ``` bash
-conda liat
+conda list
 ```
 
 And to remove cache files use:
@@ -166,8 +166,6 @@ to be able to use `conda`. We can use the following as a template to
 build new environment:
 
 ``` bash
-export CONDA_PKGS_DIRS=<dir>/.conda/pkgs
-export CONDA_ENVS_PATH=<dir>/.conda/envs
 module load miniconda3
 
 if [ ! -d yourlocal_env ]; then
@@ -176,9 +174,10 @@ fi
 source activate ./yourlocal_env
 ```
 
-We need to update conda pathes (`CONDA_PKGS_DIRS` and
-`CONDA_ENVS_DIRS`), only if we prefer to put them somewhere except home
-directory.
+We can update conda pathes, `CONDA_PKGS_DIRS` and `CONDA_ENVS_DIRS`, if
+we prefer to put Conda caches somewhere except the home directory
+(review
+[here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs)).
 
 ---
 
