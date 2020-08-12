@@ -70,11 +70,12 @@ virtual environment run `. deactivate`.
 
 ## Miniconda
 
-To use a more sophisticated method, we might consider Conda as an
-environment management system. To start using Conda, you might need to
-install Miniconda (or Anaconda) first. Follow the instruction at [Conda
+To use a more sophisticated method, we might consider
+[Conda](https://conda.io/en/latest/) as an environment management
+system. To start using Conda, you might need to install Miniconda (or
+Anaconda) first. Follow [Conda
 website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-to install Miniconda (or Anaconda) on the operating system.
+instruction to install Miniconda (or Anaconda) on your operating system.
 
 To create a new environment, use `conda create` command including names
 of the environment and required packages:
@@ -132,23 +133,17 @@ right virtual environment. We can use `conda info` and `conda env list`
 to find the current environment and use `source activate <env name or
 path>` or `source deactivate` to active or deactivate the right env.
 
-To remove a virtual environment use:
+To remove a virtual environment use `deactivate` the env and run:
 
 ``` bash
 conda env remove --name <env_name> or --prefix <env_path>
 ```
 
-**Note**: we cannot remove an environment when it is activate. Sometime,
-an env should `deactivate` multiple times, if it is activated more than
-once.
-
-To prevent dependencies crash, it is vital to install all the packages
-at the same time (if possible) when a new environment is creating by
-listing all packages listed after env directory in `cond create`. Also,
-it is very important to name all channels (which are not in the standard
-channels that conda searches by default) the are required. For example
-if one of the packages is in channel `r` and another in `conda-forge`
-then use:
+Ideally install all packages when you are creating a new environment.
+Also, try to use a single channel as much as possible. If your workflow
+requires packages from more than one channel, then all required channels
+should be listed. For example, if channel `r` and `conda-forge` are
+needed then we can use:
 
 ``` bash
 conda create --channel r --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> <pkg name> ...
@@ -162,8 +157,8 @@ conda update --chanel r --channel conda-forge --prefix ./yourlocal_env <pkg name
 ```
 
 In a **HPC** cluster system, first we need to load `miniconda3` module
-to be able to use `conda`. We can use the following as a template to
-build new environment:
+to be able to use `conda`. We can use the following as a template for
+building a new environment:
 
 ``` bash
 module load miniconda3
