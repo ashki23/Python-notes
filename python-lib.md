@@ -45,7 +45,7 @@ In general we can categorize built-in functions to:
   - Variable’s scope/location: `locals`, `globals`, `dir`,`id`
   - Objects: `callable`, `delattr`, `getattr`, `hasattr`, `setattr`
 
-Python operators include:
+Python operators also are:
 
   - Arithmetic `+`, `-`, `*`, `/`, `**`, `//`, `%`
   - Indexing: `[`
@@ -56,7 +56,7 @@ Python operators include:
   - Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `**=`, `%=`, `//=`
   - Ordering and comparison: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
-The following are some examples for above functions:
+The following are some examples for the above functions:
 
 ``` python
 divmod(6,4)
@@ -118,7 +118,7 @@ hex(id(x)) # this is the address of the object x in memory
 # '0x1048d7f10'
 ```
 
-## Libraries
+## Library
 
 Python includes a very extensive standard library that offering a wide
 range of facilities. We can categorize the below modules as follows:
@@ -136,7 +136,7 @@ range of facilities. We can categorize the below modules as follows:
   - Software packaging and distribution: `venv`
   - Launching parallel tasks: `concurrent.futures`
 
-The following shows some of the above libraries’ applications.
+The following are some of applications of the above modules.
 
 ### Miscellaneous operating system interfaces (`os`)
 
