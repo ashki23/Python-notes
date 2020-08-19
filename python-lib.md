@@ -146,21 +146,42 @@ functionality.
 ``` python
 import os
 
+## run OS commands
 os.system("""
 echo $(date) $(hostname) > date_hname.txt
 """)
-## It will generate date_hname.txt file
 
 os.popen("""
 echo $(date) $(hostname)
 """).read()
-## 'Fri Feb 21 18:19:11 CST 2020 UserHost.local\n' 
+# 'Fri Feb 21 18:19:11 CST 2020 UserHost.local\n' 
 
 lst = os.popen("""
 echo $(date) $(hostname)
 """).read()[:-1].split(' ')
 lst
-## ['Fri', 'Feb', '21', '18:19:11', 'CST', '2020', 'UserHost.local']
+# ['Fri', 'Feb', '21', '18:19:11', 'CST', '2020', 'UserHost.local']
+
+## print current working directory
+os.getcwd()
+# '/home/user'
+
+## make a new directory
+os.mkdir('new_directory')
+
+## change the directory
+os.chdir('new_directory')
+os.getcwd()
+# '/home/user/new_directory'
+
+os.chdir('..')
+os.getcwd()
+# '/home/user'
+
+## rename and remove
+os.rename('new_directory', 'dir_new')
+os.removedirs('dir_new')
+os.remove('<file_name>')
 ```
 
 ### Unix style pathname pattern expansion (`glob`)
@@ -217,6 +238,9 @@ with open('./input.json', 'r') as jsf:
 list_dict = [{'title': 'Monty Python and the Holy Grail', 'year': [1975, 'March 14']}]
 with open('output.json', 'w') as jso:
     json.dump(list_dict, jso)
+
+## Serialize to a JSON formatted str 
+js = json.dumps(list_dict)
 ```
 
 Note that we read files by system arguments (`sys.argv`) by using `with
@@ -240,6 +264,32 @@ Now, open a Unix Shell and run:
 ``` bash
 cat output.json | python jread.py
 # Monty Python and the Holy Grail
+```
+
+### Python object serialization (`pickle`)
+
+The pickle module implements binary protocols for serializing and
+de-serializing a Python object structure. You might prefer JSON to
+pickle for many reasons such as security and human readability. Learn
+more about pickle in
+[here](https://docs.python.org/3/library/pickle.html).
+
+``` python
+import pickle
+
+## read
+data = with open('input.pickle','rb') as pkl:
+    input_pkl = pickle.load(pkl)
+
+## write
+dict_data = {'title': 'Monty Python and the Holy Grail', 'year': [1975, 'March 14']}
+with open('output.pickle', 'wb') as pkl:
+    pickle.dump(dict_data, pkl)
+
+## Serialize to a pickle formatted str 
+pkl = pickle.dumps(dict_data)
+print(pkl)
+# b'\x80\x04\x95H\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x05title\x94\x8c\x1fMonty Python and the Holy Grail\x94\x8c\x04year\x94]\x94(M\xb7\x07\x8c\x08March 14\x94eu.'
 ```
 
 ### CSV file reading and writing (`csv`)
