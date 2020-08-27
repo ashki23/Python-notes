@@ -60,7 +60,7 @@ The following are some examples for the above functions:
 
 ``` python
 divmod(6,4)
-## (1, 2) ## (quotient,remainder)
+## (1, 2) # (Quotient,Remainder)
 (6 // 4, 6 % 4)
 ## (1, 2)
 
@@ -108,14 +108,14 @@ z
 locals()/globals()
 ## Return a dictionary containing the current scope's local/global variables
 
-## For example the following add x_0 = 0, x_1 = 1 and x_2 = 2 to the locals dictionary: 
+# For example the following add x_0 = 0, x_1 = 1 and x_2 = 2 to the locals dictionary: 
 for i in range(3):
   locals()['x_%s' % i] = i # or exec('x_%s = %s' % (i,i))
 x_0,x_1,x_2
 ## (0, 1, 2)
 
 hex(id(x)) # this is the address of the object x in memory
-# '0x1048d7f10'
+## '0x1048d7f10'
 ```
 
 ## Library
@@ -146,7 +146,7 @@ functionality.
 ``` python
 import os
 
-## run OS commands
+# Run OS commands
 os.system("""
 echo $(date) $(hostname) > date_hname.txt
 """)
@@ -154,31 +154,23 @@ echo $(date) $(hostname) > date_hname.txt
 os.popen("""
 echo $(date) $(hostname)
 """).read()
-# 'Fri Feb 21 18:19:11 CST 2020 UserHost.local\n' 
+## 'Fri Feb 21 18:19:11 CST 2020 UserHost.local\n' 
 
 lst = os.popen("""
 echo $(date) $(hostname)
 """).read()[:-1].split(' ')
 lst
-# ['Fri', 'Feb', '21', '18:19:11', 'CST', '2020', 'UserHost.local']
+## ['Fri', 'Feb', '21', '18:19:11', 'CST', '2020', 'UserHost.local']
 
-## print current working directory
+# Make directory and navigation
 os.getcwd()
-# '/home/user'
-
-## make a new directory
+## '/home/user'
 os.mkdir('new_directory')
-
-## change the directory
 os.chdir('new_directory')
 os.getcwd()
-# '/home/user/new_directory'
+## '/home/user/new_directory'
 
-os.chdir('..')
-os.getcwd()
-# '/home/user'
-
-## rename and remove
+# Rename and remove
 os.rename('new_directory', 'dir_new')
 os.removedirs('dir_new')
 os.remove('<file_name>')
@@ -194,7 +186,7 @@ returned in arbitrary order.
 import glob
 
 glob.glob('*.py')
-# ['file1.py', 'file2.py']
+## ['file1.py', 'file2.py']
 ```
 
 ### System-specific parameters and functions (`sys`)
@@ -230,16 +222,16 @@ This module read and write JSON files.
 ``` python
 import json
 
-## read
+# Read
 with open('./input.json', 'r') as jsf:
   input_json = json.load(jsf)
 
-## write
+# Write
 list_dict = [{'title': 'Monty Python and the Holy Grail', 'year': [1975, 'March 14']}]
 with open('output.json', 'w') as jso:
     json.dump(list_dict, jso)
 
-## Serialize to a JSON formatted str 
+# Serialize to a JSON formatted str 
 js = json.dumps(list_dict)
 ```
 
@@ -263,7 +255,7 @@ Now, open a Unix Shell and run:
 
 ``` bash
 cat output.json | python jread.py
-# Monty Python and the Holy Grail
+## Monty Python and the Holy Grail
 ```
 
 ### Python object serialization (`pickle`)
@@ -277,19 +269,19 @@ more about pickle in
 ``` python
 import pickle
 
-## read
+# Read
 data = with open('input.pickle','rb') as pkl:
     input_pkl = pickle.load(pkl)
 
-## write
+# Write
 dict_data = {'title': 'Monty Python and the Holy Grail', 'year': [1975, 'March 14']}
 with open('output.pickle', 'wb') as pkl:
     pickle.dump(dict_data, pkl)
 
-## Serialize to a pickle formatted str 
+# Serialize to a pickle formatted str 
 pkl = pickle.dumps(dict_data)
 print(pkl)
-# b'\x80\x04\x95H\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x05title\x94\x8c\x1fMonty Python and the Holy Grail\x94\x8c\x04year\x94]\x94(M\xb7\x07\x8c\x08March 14\x94eu.'
+## b'\x80\x04\x95H\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x05title\x94\x8c\x1fMonty Python and the Holy Grail\x94\x8c\x04year\x94]\x94(M\xb7\x07\x8c\x08March 14\x94eu.'
 ```
 
 ### CSV file reading and writing (`csv`)
@@ -299,26 +291,26 @@ This module read and write CSV files.
 ``` python
 import csv
 
-## read to list
+# Read to list
 with open('./input.csv', 'r') as fl:
     csv_list = list(csv.reader(fl))
 
 print(csv_list)
-# [['a', 'b', 'c', 'd'], ['22', 'yes', '5', '0'], ['34', 'no', '7', '8']]
+## [['a', 'b', 'c', 'd'], ['22', 'yes', '5', '0'], ['34', 'no', '7', '8']]
 
-## write from list
+# Write from list
 with open('output1.csv', 'w') as nfl:
     csv_writer = csv.writer(nfl)
     csv_writer.writerows(csv_list)
 
-## read to dict
+# Read to dict
 with open('./input.csv', 'r') as fl:
     csv_dict = list(csv.DictReader(fl))
 
 print(csv_dict)
-# [{'a': '22', 'b': 'yes', 'c': '5', 'd': '0'}, {'a': '34', 'b': 'no', 'c': '7', 'd': '8'}]
+## [{'a': '22', 'b': 'yes', 'c': '5', 'd': '0'}, {'a': '34', 'b': 'no', 'c': '7', 'd': '8'}]
     
-## write from dict
+# Write from dict
 with open('output2.csv', 'w') as nfl:
     csv_fl = csv.DictWriter(nfl, fieldnames = csv_dict[0].keys())
     csv_fl.writeheader()
@@ -356,18 +348,18 @@ import sqlite3
 conn = sqlite3.connect('example.db')
 c = conn.cursor()
 
-## create table
+# Create table
 c.execute("""CREATE TABLE stocks
              (date text, trans text, symbol text, qty real, price real)""")
 
-## insert a row of data
+# Insert a row of data
 c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
 
-## save (commit) the changes
+# Save (commit) the changes
 conn.commit()
 
-## we can also close the connection if we are done with it
-## just be sure any changes have been committed or they will be lost
+# We can also close the connection if we are done with it
+# just be sure any changes have been committed or they will be lost
 conn.close()
 ```
 
@@ -400,10 +392,10 @@ This module provides various time-related functions.
 import time
 
 time.strftime("%Y-%m-%d %H:%M:%S")
-# '2020-08-11 18:17:52'
+## '2020-08-11 18:17:52'
 
 time.strptime("30 Nov 20", "%d %b %y")
-# time.struct_time(tm_year=2020, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=335, tm_isdst=-1)
+## time.struct_time(tm_year=2020, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=335, tm_isdst=-1)
 ```
 
 ### Functions creating iterators for efficient looping (`itertools`)
@@ -413,7 +405,7 @@ This module implements a number of iterator building blocks.
 ``` python
 import itertools
 
-## Combinatoric iterators
+# Combinatoric iterators
 list(itertools.combinations('ABC', 2))
 ## [('A', 'B'), ('A', 'C'), ('B', 'C')]
 
@@ -435,7 +427,7 @@ list(zip(a,b))
 list(itertools.permutations(a+b,2))
 ## [(1, 3), (1, 2), (1, 4), (3, 1), (3, 2), (3, 4), (2, 1), (2, 3), (2, 4), (4, 1), (4, 3), (4, 2)]
 
-## Accumulate
+# Accumulate
 mylist = [1,3,5,7,9,11,13]
 list(itertools.accumulate(mylist))
 ## [1, 4, 9, 16, 25, 36, 49]
@@ -451,58 +443,58 @@ HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)).
 ``` python
 import re
 
-re.findall('begin', 'begin with this example for beginning') # find all 'begin's in text
-# ['begin', 'begin']
+re.findall('begin', 'begin with this example for beginning') # Find all 'begin's in text
+## ['begin', 'begin']
 
-re.findall('^begin', 'begin with this example for beginning') # find 'begin' only at the beginnig (^) of text
+re.findall('^begin', 'begin with this example for beginning') # Find 'begin' only at the beginnig (^) of text
 ['begin']
 
-re.findall('begin$', 'this is another begin') # search only last word ($)
-# ['begin']
+re.findall('begin$', 'this is another begin') # Search only last word ($)
+## ['begin']
 
-re.findall('.*begin', 'this is another begin') # search 'begin' and everything before (.*)
-# ['this is another begin']
+re.findall('.*begin', 'this is another begin') # Search 'begin' and everything before (.*)
+## ['this is another begin']
 
-re.findall('goo?al','goal vs goooooal') # zero or one (?) 'o' character
-# ['goal']
+re.findall('goo?al','goal vs goooooal') # Zero or one (?) 'o' character
+## ['goal']
 
-re.findall('goo*al','goal vs goooooal') # zero or more (*) 'o' character
-# ['goal', 'goooooal']
+re.findall('goo*al','goal vs goooooal') # Zero or more (*) 'o' character
+## ['goal', 'goooooal']
 
-re.findall('goo+al','goal vs goooooal') # one or more (*) 'o' character
-# ['goooooal']
+re.findall('goo+al','goal vs goooooal') # One or more (*) 'o' character
+## ['goooooal']
 
 re.findall('\d', 'today is Oct 10') # Find digits (\d)
-# ['1', '0']
+## ['1', '0']
 
 re.findall('\d{2}', 'today is Oct 10') # Find two digits (\d{2})
-# ['10']
+## ['10']
 
-re.findall('\w', 'today is Oct 10') # find any words (\w)
-# ['t', 'o', 'd', 'a', 'y', 'i', 's', 'O', 'c', 't', '1', '0'] 
+re.findall('\w', 'today is Oct 10') # Find any words (\w)
+## ['t', 'o', 'd', 'a', 'y', 'i', 's', 'O', 'c', 't', '1', '0'] 
 
-re.findall('\w+', 'yesterday was October 9') # find any word with one or more (+) characters
-# ['yesterday', 'was', 'October', '9']
+re.findall('\w+', 'yesterday was October 9') # Find any word with one or more (+) characters
+## ['yesterday', 'was', 'October', '9']
 
-re.findall('\w{4}\w*', 'yesterday was October 9') # find any word with 4 letters or more
-# ['yesterday', 'October']
+re.findall('\w{4}\w*', 'yesterday was October 9') # Find any word with 4 letters or more
+## ['yesterday', 'October']
 
-re.findall('[A-Z]..', 'yesterday was October 9') # find any capital word ([A-Z]) and two characters after (..)
-# ['Oct']
+re.findall('[A-Z]..', 'yesterday was October 9') # Find any capital word ([A-Z]) and two characters after (..)
+## ['Oct']
 
-re.findall('([A-Z][a-z]* \d+)', 'yesterday was October 9') # find any capital letter ([A-Z]) followed by two small letters ([a-z]{2}) and a space ( ) and two digits (\d{2})
-# ['October 9']
+re.findall('([A-Z][a-z]* \d+)', 'yesterday was October 9') # Find any capital letter ([A-Z]) followed by two small letters ([a-z]{2}) and a space ( ) and two digits (\d{2})
+## ['October 9']
 
-re.findall('(?<=; )[\w ]*', 'I want everything after; this part is important') # after (\w = [a-zA-Z0-9_])
-# ['this part is important']
+re.findall('(?<=; )[\w ]*', 'I want everything after; this part is important') # After (\w = [a-zA-Z0-9_])
+## ['this part is important']
 
-re.findall('[\w ]+(?=;)', 'I want everything before; this part is not important') # before
-# ['I want everything before']
+re.findall('[\w ]+(?=;)', 'I want everything before; this part is not important') # Before
+## ['I want everything before']
 
-pattern = re.compile('[\w ]*(?=;)') # we can keep the pattern in this way
-mm = re.match(pattern, 'I want everything before; this part is not important') # before
+pattern = re.compile('[\w ]*(?=;)') # We can keep the pattern in this way
+mm = re.match(pattern, 'I want everything before; this part is not important') # Before
 mm.group(0)
-# 'I want everything before'
+## 'I want everything before'
 ```
 
 -----
