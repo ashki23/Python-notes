@@ -32,11 +32,11 @@ You might also like these related articles:
 
 In general we can categorize built-in functions to:
 
-  - Mathematical: `abs`, `divmod`, `max`, `min`, `pow`, `round`,`sum`
+  - Mathematical: `abs`, `divmod`, `max`, `min`, `pow`, `round`, `sum`
   - Logical/test: `all`, `any`, `isinstance`, `issubclass`
   - Structural: `dict`, `bool`, `complex`, `list`, `tuple`, `int`,
     `float`, `str`, `set`, `type`
-  - Applicator: `map`, `filter`, `eval`, `exec`,`slice`, `zip`, `len`,
+  - Applicator: `map`, `filter`, `eval`, `exec`, `slice`, `zip`, `len`,
     `reversed`, `sorted`
   - Iteration: `iter`, `enumerate`, `next`, `range`
   - In/out: `input`, `open`, `print`
@@ -123,7 +123,8 @@ hex(id(x)) # this is the address of the object x in memory
 Python includes a very extensive standard library that offering a wide
 range of facilities. We can categorize the below modules as follows:
 
-  - Numeric and mathematical: `math`, `cmath`, `statistics`, `random`
+  - Numeric and mathematical: `math`, `cmath`, `statistics`, `random`,
+    `decimal`
   - File formats: `csv`, `json`
   - Generic operating system services: `os`, `ctypes`, `argparse`,
     `time`
@@ -174,6 +175,10 @@ os.getcwd()
 os.rename('new_directory', 'dir_new')
 os.removedirs('dir_new')
 os.remove('<file_name>')
+
+# Env variables
+os.getenv('HOME')
+## '/home/user'
 ```
 
 ### Unix style pathname pattern expansion (`glob`)
@@ -372,16 +377,31 @@ alternatives to Python’s general purpose built-in containers, `dict`,
 ``` python
 import collections
 
+# Example 1
+dict_list = collections.defaultdict(list)
+for i in list(range(2))*3:
+    dict_list[i].append(1)
+
+dict(dict_list)
+## {0: [1, 1, 1], 1: [1, 1, 1]}
+
+for k in dict_list:
+    dict_list[k] = sum(dict_list[k])
+
+dict(dict_list)
+## {0: 3, 1: 3}
+
+# Example 2
 s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
 d = collections.defaultdict(list)
-for k, v in s:
+for k,v in s:
     d[k].append(v)
 
 sorted(d.items())
-# [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+## [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
 
-dict(iter(sorted(d.items())))
-# {'blue': [2, 4], 'red': [1], 'yellow': [1, 3]}
+dict(sorted(d.items()))
+## {'blue': [2, 4], 'red': [1], 'yellow': [1, 3]}
 ```
 
 ### Time access and conversions (`time`)
