@@ -45,7 +45,7 @@ After activating the environment with the above command, we can use
 `pip` to install required packages by:
 
 ``` bash
-pip install <package name>
+pip install package1 package2=version package3>=version ...
 ```
 
 For example, the following Bash scripts creates `tutorial-env` if it
@@ -61,27 +61,32 @@ fi
 source tutorial-env/bin/activate
 
 pip install --upgrade pip
-pip install redis
-pip install gitpython
+pip install redis gitpython
 ```
 
-As a shortcut, we can use `.` instead of `source`. To exit from a
-virtual environment run `. deactivate`.
+-----
 
 ## Miniconda
 
 To use a more sophisticated method, we might consider
 [Conda](https://conda.io/en/latest/) as an environment management
-system. To start using Conda, you might need to install Miniconda (or
-Anaconda) first. Follow [Conda
+system. To start using Conda, follow [Conda
 website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 instruction to install Miniconda (or Anaconda) on your operating system.
+
+When Miniconda is installed use `conda init <shell-name>` to initiate
+Conda and run `conda config --set auto_activate_base false` to stop auto
+base activation. For Conda autocompletion copy
+[conda-bash-completion](https://github.com/tartansandal/conda-bash-completion/blob/master/conda)
+in `/usr/share/bash-completion/completions/conda`.
+
+### Usage
 
 To create a new environment, use `conda create` command including names
 of the environment and required packages:
 
 ``` bash
-conda create --name <env_name> <pkg name> <pkg name=version> ...
+conda create --name env_name package1 package2=version ...
 ```
 
 We also can use `--yes` flag to set up the environment without a
@@ -93,27 +98,26 @@ same time). To see list of environments, use the following:
 conda env list
 ```
 
-We can also use `conda info --envs` to see list of envs. To
-activate/deactivate an environment use the following:
+We can also use `conda info --envs` to see list of envs. To activate an
+environment type:
 
 ``` bash
-conda activate <env_name or env_path>
-conda deactivate
+conda activate env_name or env_path
 ```
 
 Note that, for Conda versions prior to 4.6 we need to use `source`
 instead of `conda` in the above commands. Now, use the following to
-update `conda` and install a new package:
+update `conda` and install new packages in an activated env:
 
 ``` bash
 conda update conda
-conda install <pkg name>
+conda install package1 package2=version ...
 ```
 
-To remove the package use:
+To remove packages use:
 
 ``` bash
-conda remove <pkg name>
+conda remove package1 package2=version ...
 ```
 
 To see list of the installed packages within the env, use:
@@ -122,57 +126,80 @@ To see list of the installed packages within the env, use:
 conda list
 ```
 
+And deactivate the env by:
+
+``` bash
+conda deactivate
+```
+
+To remove a virtual environment, deactivate the env and run:
+
+``` bash
+conda env remove --name env_name or --prefix env_path
+```
+
 And to remove cache files use:
 
 ``` bash
 conda clean --all
 ```
 
-**Note**: before removing packages or caches, make sure we are in the
-right virtual environment. We can use `conda info` and `conda env list`
-to find the current environment and use `source activate <env name or
-path>` or `source deactivate` to active or deactivate the right env.
+### Conda channels
 
-To remove a virtual environment use `deactivate` the env and run:
-
-``` bash
-conda env remove --name <env_name> or --prefix <env_path>
-```
-
-Ideally install all packages when you are creating a new environment.
-Also, try to use a single channel as much as possible. If your workflow
-requires packages from more than one channel, then all required channels
-should be listed. For example, if channel `r` and `conda-forge` are
-needed then we can use:
+Whenever we use `conda create` or `conda install` without mentioning a
+channel name, Conda package manager search its default channels to
+install the packages. If you are looking for specific packages that are
+not in the default channels you have to mention them by using:
 
 ``` bash
-conda create --channel r --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> <pkg name> ...
+codna create --name env_name --channel channel1 --channel channel2 ... package1 package2 ...
 ```
 
-Also, it is important to keep using same channels for updating the
-environment by:
+For example the following creates `new_env` and installs r-sf, shapely
+and bioconductor-biobase from `r`, `conda-forge` and `bioconda`
+channels:
 
 ``` bash
-conda update --chanel r --channel conda-forge --prefix ./yourlocal_env <pkg name> <pkg name> ...
+codna create --name new_env --channel r --channel conda-forge --channel bioconda r-sf shapely bioconductor-biobase
 ```
 
-In a **HPC** cluster system, first we need to load `miniconda3` module
-to be able to use `conda`. We can use the following as a template for
-building a new environment:
+Ideally, you should create one environment per project and include all
+the required packages when you create the environment and try to use a
+single channel as much as possible. It is important using the same
+channels for updating the environment.
+
+### Conda packages
+
+To find the required packages, we can visit
+[anaconda.org](https://anaconda.org) and search for packages to find
+their full name and the corresponding channel. Another option is using
+`conda search` command. Note that we need to search the right channel to
+find pakages that are not in the default channels. For example:
+
+``` bash
+conda search --channel bioconda biobase
+```
+
+### HPC workflow
+
+In a HPC cluster system, first we need to load `miniconda3` module to be
+able to use `conda`. We can use the following as a template for building
+a new environment:
 
 ``` bash
 module load miniconda3
 
 if [ ! -d yourlocal_env ]; then
-conda create --yes --prefix ./yourlocal_env <pkg name> <pkg name> ...
+conda create --yes --prefix ./yourlocal_env package1 package2 ...
 fi
 source activate ./yourlocal_env
 ```
 
-We can update conda pathes, `CONDA_PKGS_DIRS` and `CONDA_ENVS_DIRS`, if
-we prefer to put Conda caches somewhere except the home directory
-(review
-[here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs)).
+To keep Conda packages and caches somewhere except the home directory,
+we can update conda pathes by exporting new `CONDA_PKGS_DIRS` and
+`CONDA_ENVS_DIRS` or creating/updating `~/.condarc` file. Review
+[here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs)
+to learn more.
 
 ---
 
