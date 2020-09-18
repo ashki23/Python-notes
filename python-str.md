@@ -16,8 +16,7 @@ examples. You may find more about Python programming at:
     Python](https://hpc-carpentry.github.io/hpc-python/)
   - [The Python
     Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
-  - [Function programming in
-    Python](https://ashki23.github.io/python-fun.html)
+  - [Function programming in Python](python-fun.html)
 
 -----
 

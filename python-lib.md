@@ -20,11 +20,9 @@ Sources:
 
 You might also like these related articles:
 
-  - [Python data structures](https://ashki23.github.io/python-str.html)
-  - [Function programming in
-    Python](https://ashki23.github.io/python-fun.html)
-  - [Virtual environments in
-    Python](https://ashki23.github.io/python-env.html)
+  - [Python data structures](python-str.html)
+  - [Function programming in Python](python-fun.html)
+  - [Virtual environments in Python](python-env.html)
 
 -----
 

@@ -7,7 +7,7 @@ programming in Python 3 and learn about some Python’s built-in functions
 through several examples. As a prerequisite for this tutorial, it is
 better to learn the following first:
 
-  - [Python data structures](https://ashki23.github.io/python-str.html)
+  - [Python data structures](python-str.html)
   - [Control flow tools in
     Python](https://docs.python.org/3/tutorial/controlflow.html)
 

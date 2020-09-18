@@ -68,17 +68,21 @@ pip install redis gitpython
 
 ## Miniconda
 
-To use a more sophisticated method, we might consider
-[Conda](https://conda.io/en/latest/) as an environment management
-system. To start using Conda, follow [Conda
+To create virtual environments, [Conda](https://conda.io/en/latest/)
+could be the best environment management system. Miniconda is an open
+source package and environment management system that includes Conda.
+Conda quickly installs, runs and updates packages and their
+dependencies. To start using Conda, follow [Conda
 website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-instruction to install Miniconda (or Anaconda) on your operating system.
+instruction to install Miniconda (or Anaconda if you want to have most
+of the scientific packages) on your operating system.
 
-When Miniconda is installed use `conda init <shell-name>` to initiate
+When Miniconda is installed, use `conda init <shell-name>` to initiate
 Conda and run `conda config --set auto_activate_base false` to stop auto
 base activation. For Conda autocompletion copy
 [conda-bash-completion](https://github.com/tartansandal/conda-bash-completion/blob/master/conda)
-in `/usr/share/bash-completion/completions/conda`.
+in `/usr/share/bash-completion/completions/conda` on a Linux or
+corresponding directory on a MacOS or Windows OS.
 
 ### Usage
 
