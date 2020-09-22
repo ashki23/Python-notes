@@ -6,7 +6,7 @@ introduction of programming in Python. The following is list of content of the r
 - [Python data structures](https://github.com/ashki23/Python-notes/blob/master/python-str.md)
 - [Python standard library](https://github.com/ashki23/Python-notes/blob/master/python-lib.md)
 - [Virtual Environments in Python](https://github.com/ashki23/Python-notes/blob/master/python-env.md)
-- [mudoitsastudent@missouri.edu](https://github.com/ashki23/Python-notes/blob/master/tensorflow.md)
+- [Introduction to TensorFlow](https://github.com/ashki23/Python-notes/blob/master/tensorflow.md)
 - [Lambda function](https://github.com/ashki23/Python-notes/blob/master/lambda.md)
 - [String formatting or interpolation operator](https://github.com/ashki23/Python-notes/blob/master/magic-string.md)
 - [Regular expression](https://github.com/ashki23/Python-notes/blob/master/regular-expression.md)
