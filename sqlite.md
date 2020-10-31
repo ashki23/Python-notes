@@ -8,7 +8,8 @@ engine in the world.
 
   - [SQLite tutorial](https://www.sqlitetutorial.net/)
   - [SQLite Python](https://www.sqlitetutorial.net/sqlite-python/)
-  - [Software Carpentry](http://swcarpentry.github.)
+  - [Software
+    Carpentry](http://swcarpentry.github.io/sql-novice-survey/)
   - [Database design with UML and
     SQL](http://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php)
 
