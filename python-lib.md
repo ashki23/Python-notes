@@ -526,13 +526,12 @@ can empower your toolbox.
   - **SymPy:** a library for symbolic mathematics
   - **Matplotlib:** a comprehensive 2D plotting library
   - **IPython/Jupyter:** an enhanced interactive console
-  - **Pandas:** when working with tabular data (DataFrame), such as data
-    stored in spreadsheets or databases, Pandas is a useful tool for you
+  - **Pandas:** a tool for working with tabular data (DataFrame), such
+    as data stored in spreadsheets or databases
   - **NumPy:** a base N-dimensional array package - useful linear
     algebra
   - **SciPy:** a Python-based ecosystem of open-source software for
-    mathematics, science, and engineering such as SymPy, NumPy,
-    Matplotlib, IPython and pandas
+    mathematics, science, and engineering
   - **Numba:** an open source JIT compiler that translates a subset of
     Python and NumPy code into fast machine code
   - **Cython:** a library for writing C extensions for Python as easy as
@@ -544,6 +543,8 @@ can empower your toolbox.
     learning
   - **Dask:** it natively scales Python and provides advanced
     parallelism for analytics
+  - **Redis:** is Python interface to the Redis key-value store
+  - **PySpark:** is Python API for Apache Spark
 
 **Hint:**
 [Anaconda](https://ashki23.github.io/python-env.html#miniconda), a

@@ -293,7 +293,7 @@ of functions by using `SymPy` package, for example:
 
 ``` python
 import sympy
-x = symbols('x')
+x = sympy.symbols('x')
 f = x**3
 ff = f.diff(x,2)
 ff
