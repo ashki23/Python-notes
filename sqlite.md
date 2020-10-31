@@ -13,9 +13,10 @@ engine in the world.
     SQL](http://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php)
 
 In this tutorial, we will learn how to convert CSV files to database
-tables and run simple SQL queries Python using SQLite3. In this article
-we use “surveys.csv” and “species.csv” files from
-[here](https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10).
+tables and run simple SQL queries in Python. We are using “surveys.csv”
+and “species.csv” files from
+[here](https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10)
+to practice our learning.
 
 -----
 
@@ -262,26 +263,12 @@ For example, change the directory to your database location and enter
 `sqlite3 eco.db` to open the database and run:
 
 ``` sql
-.schema --to see the schema of the databse
-.tables --to list tables in the databaset
-.mode column --to see in column mode
-.header on --to show headers
-
-PRAGMA TABLE_INFO(species); --to see tables info
--- cid  name        type  notnull  dflt_value  pk
--- ---  ----------  ----  -------  ----------  --
--- 0    species_id  text  0                    1 
--- 1    genus       text  0                    0 
--- 2    species     text  0                    0 
--- 3    taxa        text  0                    0 
-
-SELECT * FROM survey ORDER BY year ASC LIMIT 4;
--- record_id  month  day  year  plot_id  species_id  sex  hindfoot_length  weight
--- ---------  -----  ---  ----  -------  ----------  ---  ---------------  ------
--- 1          7      16   1977  2        NL          M    32.0                   
--- 2          7      16   1977  3        NL          M    33.0                   
--- 3          7      16   1977  2        DM          F    37.0                   
--- 4          7      16   1977  7        DM          M    36.0                   
+.schema -- to see the schema of the databse
+.tables -- to list database tables
+.mode column -- to see in column mode
+.header on -- to show headers
+PRAGMA TABLE_INFO(species); -- to see tables info
+SELECT * FROM survey ORDER BY year ASC LIMIT 10;
 ```
 
 ---
