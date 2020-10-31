@@ -33,8 +33,8 @@ queries.
 import sqlite3
 ```
 
-To create a database (db) or connect to an existing db and add a cursor
-to the db use:
+To create a database (db) or connect to an existing one and to add a
+cursor use:
 
 ``` py
 con = sqlite3.connect('./mydb.db')
@@ -46,17 +46,18 @@ instance to create a table, called “survey”, with some fields we can
 run:
 
 ``` py
-cur.execute("""CREATE TABLE IF NOT EXISTS survey (
-                   record_id integer PRIMARY KEY,
-                   month text,
-                   day text,
-                   year text,
-                   plot_id text,
-                   species_id text,
-                   sex text,
-                   hindfoot_length real,
-                   weight real
-                );""")
+cur.execute("""
+CREATE TABLE IF NOT EXISTS survey (
+    record_id integer PRIMARY KEY,
+    month text,
+    day text,
+    year text,
+    plot_id text,
+    species_id text,
+    sex text,
+    hindfoot_length real,
+    weight real
+    );""")
 ```
 
 As you noticed we simply ran the SQL command to create the table with
@@ -130,7 +131,7 @@ commands in Python. For example:
 ``` python
 import sqlite3
 
-# Connect and read the BD
+# Connect and read the db
 con = sqlite3.connect('./eco.db')
 cur = con.cursor()
 
@@ -150,10 +151,6 @@ con.close()
 lis = [x[0] for x in out]
 print(lis)
 
-# Connect and read the BD
-con = sqlite3.connect('./eco.db')
-cur = con.cursor()
-
 ## ['1977', '1978', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002']
 ```
 
@@ -162,6 +159,10 @@ store the queries in Python dictionaries:
 
 ``` python
 import sqlite3
+
+# Connect and read the db
+con = sqlite3.connect('./eco.db')
+cur = con.cursor()
 
 # SQL query
 cur.execute("SELECT name FROM PRAGMA_TABLE_INFO('survey');") # select fields' name
@@ -195,7 +196,7 @@ The following are more examples of different SQL queries in Python:
 ``` python
 import sqlite3
 
-# Connect and read the BD
+# Connect and read the db
 con = sqlite3.connect('./eco.db')
 cur = con.cursor()
 
