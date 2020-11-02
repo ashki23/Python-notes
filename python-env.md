@@ -79,14 +79,19 @@ of the scientific packages) on your operating system.
 
 When Miniconda is installed, use `conda init <shell-name>` to initiate
 Conda and run `conda config --set auto_activate_base false` to stop auto
-base activation. For adding Conda autocompletion in bash terminal copy
+base activation.
+
+For adding Conda autocompletion, in bash terminal copy
 [conda-bash-completion](https://github.com/tartansandal/conda-bash-completion/blob/master/conda)
-in `/usr/share/bash-completion/completions/conda`. And for a MacOS with
+in `/usr/share/bash-completion/completions/conda`. And for a macOS with
 zsh, copy
 [conda-zsh-completion](https://github.com/esc/conda-zsh-completion/blob/master/_conda)
-in `~/miniconda3/zsh-completion/_conda` and add
-`fpath+="/Users/${USER}/miniconda3/zsh-completion" && compinit` to the
-`~/.zshrc` file.
+in `~/miniconda3/zsh-completion/_conda` and add the following to the
+`~/.zshrc` file:
+
+``` bash
+fpath+="/Users/${USER}/miniconda3/zsh-completion" && compinit
+```
 
 ### Usage
 
