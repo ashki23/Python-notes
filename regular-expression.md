@@ -28,7 +28,7 @@ re.findall('goo?al','goal vs goooooal') # zero or one (?) 'o' character
 re.findall('goo*al','goal vs goooooal') # zero or more (*) 'o' character
 # ['goal', 'goooooal']
 
-re.findall('goo+al','goal vs goooooal') # one or more (*) 'o' character
+re.findall('goo+al','goal vs goooooal') # one or more (+) 'o' character
 # ['goooooal']
 
 re.findall('\d', 'today is Oct 10') # Find digits (\d)
