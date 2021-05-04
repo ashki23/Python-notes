@@ -59,5 +59,28 @@ The following is a list of some important string formatting specifications:
 |`%g`|compact decimal or scientific notation (with `e`)|
 |`%.xy`|format y with x decimals, eg. `.12f`|
 
+
+Note that for the print statment we can use *printf* instead. For example:
+
+```python
+num = [1,2,3]
+for i in num:
+  print(f"The number is: {i}")
+
+# The number is: 1
+# The number is: 2
+# The number is: 3
+
+
+num = [1,2,3]
+for i in num:
+  print(f"{i} divided by {i+1} is {i/(i+1)}")
+
+# 1 divided by 2 is 0.500000
+# 2 divided by 3 is 0.666667
+# 3 divided by 4 is 0.750000
+```
+
+
 ---
 Copyright 2018-2019, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
