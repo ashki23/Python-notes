@@ -15,6 +15,8 @@ Sources:
 
   - [Python built-in
     functions](https://docs.python.org/3/library/functions.html)
+  - [Python lexical
+    analysis](https://docs.python.org/3/reference/lexical_analysis.html)
   - [The Python standard
     library](https://docs.python.org/3/library/index.html)
 
@@ -26,7 +28,7 @@ You might also like these related articles:
 
 -----
 
-## Built-in functions
+## Built-in functions and keywords
 
 In general we can categorize built-in functions to:
 
@@ -43,18 +45,29 @@ In general we can categorize built-in functions to:
   - Variable’s scope/location: `locals`, `globals`, `dir`,`id`
   - Objects: `callable`, `delattr`, `getattr`, `hasattr`, `setattr`
 
-Python operators also are:
+Note that functions require parentheses, for instance `abs(-7)` or
+`range(3)`.
 
-  - Arithmetic `+`, `-`, `*`, `/`, `**`, `//`, `%`
+The most common operators are:
+
+  - Arithmetic `+`, `-`, `*`, `/`, `**`, `//`, `%`, `@`
   - Indexing: `[`
   - Sequence operator: `:`
-  - Identity: `is`, `is not`
-  - Logical: `and`, `or`, `not`
-  - Membership: `in`, `not in`
-  - Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `**=`, `%=`, `//=`
+  - Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `**=`, `//=`, `%=`, `@=`
   - Ordering and comparison: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
-The following are some examples for the above functions:
+The following identifiers are used as reserved words, or keywords of the
+language, and cannot be used as ordinary identifier:
+
+    False      await      else       import     pass
+    None       break      except     in         raise
+    True       class      finally    is         return
+    and        continue   for        lambda     try
+    as         def        from       nonlocal   while
+    assert     del        global     not        with
+    async      elif       if         or         yield
+
+Next are some examples for the above functions:
 
 ``` python
 divmod(6,4)
@@ -177,6 +190,8 @@ os.remove('<file_name>')
 # Env variables
 os.getenv('HOME')
 ## '/home/user'
+
+os.environ ## returns all the envs as ENV:PATH 
 ```
 
 ### Unix style pathname pattern expansion (`glob`)
@@ -409,12 +424,55 @@ This module provides various time-related functions.
 ``` python
 import time
 
-time.strftime("%Y-%m-%d %H:%M:%S")
-## '2020-08-11 18:17:52'
+local_time = time.localtime() # a time tuple expressing local time
+local_time
+## time.struct_time(tm_year=2021, tm_mon=5, tm_mday=6, tm_hour=22, tm_min=3, tm_sec=32, tm_wday=3, tm_yday=126, tm_isdst=1)
 
-time.strptime("30 Nov 20", "%d %b %y")
+local_time.tm_year
+## 2021
+
+time.strftime("%X", local_time) # convert a time tuple to a string according to a format specification
+## '22:03:32'
+
+time.strftime("%Y-%m-%d %H:%M:%S") # the default tuple is localtime()
+## '2021-05-06 22:10:03'
+
+time.time() # return the current time in seconds since the Epoch
+## 1620356510.8557692
+
+time.mktime(local_time) # convert a time tuple in local time to seconds since the Epoch
+## 1620356612.0
+
+local_time2 = time.localtime()
+difference = time.mktime(local_time2) - time.mktime(local_time) # time difference in sec
+difference
+## 452.0
+
+time.gmtime(difference) # convert seconds since the Epoch to a time tuple
+## time.struct_time(tm_year=1970, tm_mon=1, tm_mday=1, tm_hour=0, tm_min=7, tm_sec=32, tm_wday=3, tm_yday=1, tm_isdst=0)
+
+time.strptime("30 Nov 20", "%d %b %y") # parse a string to a time tuple according to a format specification
 ## time.struct_time(tm_year=2020, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=335, tm_isdst=-1)
 ```
+
+Commonly used time format codes:
+
+  - `%Y` Year with century as a decimal number.
+  - `%m` Month as a decimal number \[01,12\].
+  - `%d` Day of the month as a decimal number \[01,31\].
+  - `%H` Hour (24-hour clock) as a decimal number \[00,23\].
+  - `%M` Minute as a decimal number \[00,59\].
+  - `%S` Second as a decimal number \[00,61\].
+  - `%z` Time zone offset from UTC.
+  - `%a` Locale’s abbreviated weekday name.
+  - `%A` Locale’s full weekday name.
+  - `%b` Locale’s abbreviated month name.
+  - `%B` Locale’s full month name.
+  - `%c` Locale’s appropriate date and time representation.
+  - `%x` Locale’s appropriate date representation.
+  - `%X` Locale’s appropriate time representation.
+  - `%p` Locale’s equivalent of either AM or PM.
+  - `%I` Hour (12-hour clock) as a decimal number \[01,12\].
 
 ### Functions creating iterators for efficient looping (`itertools`)
 

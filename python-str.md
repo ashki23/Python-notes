@@ -205,13 +205,22 @@ float('5') + 5
 ## 10.0
 
 list((2,4,6))
-## [2,4,6]
+## [2, 4, 6]
+
+list({'a':1,'b':2})
+## ['a', 'b']
+
+list({'a':1,'b':2}.values())
+## [1, 2]
 
 tuple([1,3,5])
 ## (1,3,5)
 
 set([1,3,5,1,3,5])
-## {1,3,5}
+## {1, 3, 5}
+
+dict([('a',1),('b',2),('c',3)])
+## {'a': 1, 'b': 2, 'c': 3}
 ```
 
 -----
@@ -241,20 +250,27 @@ methods for strings:
   - `str.lower()` lowercase
   - `str.upper()` uppercase
   - `str.find(x)` find index of character x
-  - `str.index(x)` index of x character (similar to `.find(x)` if x is
+  - `str.index(x)` index of character x (similar to `.find(x)` if x is
     in the string)
   - `str.count(x)` count how many times x repeated
   - `str.replace(x,y)` replace character x with y
-  - `str.split('sep')` split an string to a list of strings based on the
-    separator `sep` (can be empty `''`)
-  - `sep.join(list)` join a list of strings to make an string with
-    separator `sep` (can be empty `''`) - opposite of `.split()`
-  - `str.center('chr', num)` see an example in below
+  - `str.split(x)` split an string to a list of strings based on the
+    separator x (can be empty `''`)
+  - `str.join(x)` join list of strings or string x to make an string by
+    a separator - opposite of `.split()`
+  - `str.startswith(x)` True if the string starts with x character
+  - `str.endswith(x)` True if the string ends with x character
+  - `str.strip()` removing whitespace from the beginning and ending
+  - `str.center('chr', num)` see an example in the below
 
 For example:
 
 ``` python
 name = 'python'
+
+name.startswith('p')
+## True
+
 name.capitalize()
 ## 'Python'
 
@@ -290,16 +306,16 @@ Lists are **mutable**, and their elements are usually **homogeneous**
 and are accessed by iterating over the list.
 
 ``` python
-list_ = [1,3,5,7]
-list_[0] = 100 # Lists are mutable
-list_
+ls = [1,3,5,7]
+ls[0] = 100 # Lists are mutable
+ls
 ## [100, 3, 5, 7]
 
 # Lists can hold any type of item
 example = [1,True,None,['word',123],'test',(0,1),{'name id': 7}]
 
 # Indexing
-list_[1:3]
+ls[1:3]
 ## [3, 5]
 
 example[3][1]
@@ -310,12 +326,14 @@ Here are main lists methods:
 
   - `list.append(x)` append x
   - `list.extend(x)` or `+=` extend/add x
-  - `list.insert(i,x)` insert x in position i
+  - `list.insert(i,x)` insert x to index i
   - `list.remove(x)` remove x
-  - `list.pop(i)` remove item at position i (similar to `del(list[i])`)
+  - `list.pop(i)` pop out and remove item at index i (similar to
+    `del(list[i])`)
+  - `list.pop()` pop out and remove the last item
   - `list.sort()` sort
   - `list.reverse()` reverse the order
-  - `list.count(x)` count number of times x repeated
+  - `list.count(x)` count number of times x is repeated
   - `list.index(x)` find index of item x
   - `list.copy()` copy list
   - `list.clear()` clear list
@@ -497,7 +515,7 @@ example['first key']
 Here are some of dictionaries methods:
 
   - `dict.update()` update/add items
-  - `dict.popitem()` remove an item
+  - `dict.popitem()` remove the last item
   - `dict.pop(k)` remove item with key k
   - `dict.keys()` return keys
   - `dict.values()` return values
@@ -559,17 +577,18 @@ production rate of two products, id 23 and id 35, in years 2005 and
 2010:
 
 ``` python
-exmp = [{'id':23,'year':2005,'production':2305},{'id':35,'year':2005,'production':3505},{'id':23,'year':2010,'production':2310},{'id':35,'year':2010,'production':3510}]
+production = [{'id':23,'year':2005,'rate':2305},{'id':35,'year':2005,'rate':3505},{'id':23,'year':2010,'rate':2310},{'id':35,'year':2010,'rate':3510}]
 ```
 
 We can make a dictionary of production rates for each `id_year`
 combination such that:
 
 ``` python
-dict_ = {}
-for i in exmp:
-  dict_['%s_%s' % (i['id'],i['year'])] = i['production']
-dict_
+annual_rates = {}
+for i in production:
+  annual_rates['%s_%s' % (i['id'],i['year'])] = i['rate']
+
+annual_rates
 ## {'23_2005': 2305, '35_2005': 3505, '23_2010': 2310, '35_2010': 3510}
 ```
 
@@ -579,19 +598,23 @@ of lists such that:
 
 ``` python
 import collections
-dt_ = collections.defaultdict(list)
-for i in exmp:
-  dt_[i['id']].append(i['production'])
-dict(dt_)
+
+annual_rates = collections.defaultdict(list)
+for i in production:
+  annual_rates[i['id']].append(i['rate'])
+
+dict(annual_rates)
 ## {23: [2305, 2310], 35: [3505, 3510]}
 ```
 
 Now let’s find total production over years:
 
 ``` python
-for i in dt_:
-  dt_[i] = sum(dt_[i])
-dict(dt_)
+annual_rates_total = {}
+for i in annual_rates:
+  annual_rates_total[i] = sum(annual_rates[i])
+
+annual_rates_total
 ## {23: 4615, 35: 7015}
 ```
 
@@ -600,8 +623,8 @@ finite stream of `(key, value)` tuples:
 
 ``` python
 L = [('Italy', 'Rome'), ('France', 'Paris'), ('US', 'Washington DC')]
-dict(iter(L))
-{'Italy': 'Rome', 'France': 'Paris', 'US': 'Washington DC'}
+dict(L)
+## {'Italy': 'Rome', 'France': 'Paris', 'US': 'Washington DC'}
 ```
 
 ### Sets
@@ -633,8 +656,31 @@ for element in [[], (), {}]:
 ## <class 'dict'>
 ```
 
-Sets have several methods including set operations such as `union`,
-`intersection`, and `difference`.
+Sets have several methods including set operations such as:
+
+  - `set.add(x)`: add a member to the set
+  - `set.update(x)`: add a set/list to a set
+  - `set.remove(x)`: remove a member of the set
+  - `set.pop()`: pop out and remove the first member
+  - `set.union(x)`: union of a set/list to a set
+  - `set.intersection(x)`: intersection of a set/list to a set
+  - `set.difference(x)`: difference of a set/list to a set
+
+<!-- end list -->
+
+``` python
+s = {1,2,3}
+t = {3,4,5}
+
+s.union(t)
+## {1, 2, 3, 4, 5}
+
+s.intersection(t)
+## {3}
+
+s.difference(t)
+## {1,2}
+```
 
 Iterating through sets:
 
