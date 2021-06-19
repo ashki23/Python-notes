@@ -1,12 +1,12 @@
 # Python standard library
 *[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
-Python standard library includes about 220 modules and 54 built-in
-functions. Each of these modules designed for specific purposes and
-includes several functions (beside the built-in functions) and most of
-the users might never use many of them (use `help('modules')` to see
-list of the modules). On the other hand, built-in functions are very
-limited and it is not hard to learn and apply most of them.
+Python standard library includes about 220 modules and 89 built-in
+functions (Python 3.9). Each of these modules designed for specific
+purposes and includes several functions (methods) and most of the users
+might never use many of them (use `help('modules')` to see list of the
+modules). On the other hand, built-in functions are very limited and it
+is not hard to learn and apply most of them.
 
 In this tutorial we will learn more about Python built-in functions and
 some useful modules for general Python users.
@@ -34,19 +34,24 @@ In general we can categorize built-in functions to:
 
   - Mathematical: `abs`, `divmod`, `max`, `min`, `pow`, `round`, `sum`
   - Logical/test: `all`, `any`, `isinstance`, `issubclass`
-  - Structural: `dict`, `bool`, `complex`, `list`, `tuple`, `int`,
-    `float`, `str`, `set`, `type`
-  - Applicator: `map`, `filter`, `eval`, `exec`, `slice`, `zip`, `len`,
-    `reversed`, `sorted`
-  - Iteration: `iter`, `enumerate`, `next`, `range`
+  - Structural: `bool`, `bytes`, `bytearray`, `complex`, `dict`,
+    `float`, `frozenset`, `int`, `list`, `set`, `str`, `type`, `tuple`
+  - Applicator: `exec`, `eval`, `filter`, `len`, `map`, `reversed`,
+    `sorted`, `slice`, `zip`
+  - Iteration:`enumerate`, `iter`, `next`, `range`
   - In/out: `input`, `open`, `print`
-  - Character converter: `bin`, `chr`, `ord`, `hex`, `oct`, `repr`,
-    `ascii`, `format`
-  - Variable’s scope/location: `locals`, `globals`, `dir`,`id`
+  - Character converter: `ascii`, `bin`, `chr`, `format`, `hex`, `oct`,
+    `ord`, `repr`
+  - Variable’s scope/location: `dir`, `globals`, `id`, `locals`, `vars`
   - Objects: `callable`, `delattr`, `getattr`, `hasattr`, `setattr`
+  - Other: `breakpoint`, `classmethod`, `compile`, `memoryview`,
+    `property`, `staticmethod`, `super`, …
 
 Note that functions require parentheses, for instance `abs(-7)` or
-`range(3)`.
+`range(3)`. Some of the built-in functions are part of a module that can
+add the module’s methods to the objects, for instance `open` function
+from module io has `read`, `write`, `seek`, `close` and more methods
+(see examples in the below).
 
 The most common operators are:
 
@@ -127,6 +132,35 @@ x_0,x_1,x_2
 
 hex(id(x)) # this is the address of the object x in memory
 ## '0x1048d7f10'
+
+with open('new_file.txt', 'w') as fw:
+    fw.write('The first line\nThe second line\n')
+
+my_file = open('new_file.txt', 'r')
+my_file.read() ## read the openned file from the begining to the end
+## 'The first line\nThe second line\n'
+my_file.read() ## since we read the file, the cursor is at the end
+## ''
+my_file.seek(0) ## move the cursor to the begining
+my_file.read()
+## 'The first line\nThe second line\n'
+
+my_file.seek(0) ## move the cursor to the begining
+my_file.readline() ## read line by line
+## 'The first line\n'
+my_file.readline()
+## 'The second line\n'
+
+my_file.seek(0) ## move the cursor to the begining
+my_file.readlines() ## read all lines as a list
+['The first line\n', 'The second line\n']
+
+my_file.seek(0) ## move the cursor to the begining
+for line in my_file:
+    print(line, end = '')
+## The first line
+## The second line
+my_file.close() ## we should close the file
 ```
 
 ## Library
@@ -140,7 +174,7 @@ range of facilities. We can categorize the below modules as follows:
   - Generic operating system services: `os`, `ctypes`, `argparse`,
     `time`
   - System-specific parameters and functions: `sys`
-  - File and directory access: `glob`
+  - File and directory access: `glob`, `shutil`
   - Data persistence: `sqlite3`, `dbm`, `pickle`
   - Functional programming: `itertools`, `functools`, `operator`
   - Text processing services: `srting`, `re`, `readline`
@@ -150,10 +184,10 @@ range of facilities. We can categorize the below modules as follows:
 
 The following are some of applications of the above modules.
 
-### Miscellaneous operating system interfaces (`os`)
+### OS
 
-This module provides a portable way of using operating system dependent
-functionality.
+Miscellaneous operating system interfaces (`os`) module provides a
+portable way of using operating system dependent functionality.
 
 ``` python
 import os
@@ -165,14 +199,20 @@ echo $(date) $(hostname) > date_hname.txt
 
 os.popen("""
 echo $(date) $(hostname)
-""").read()
-## 'Fri Feb 21 18:19:11 CST 2020 UserHost.local\n' 
+""").read().strip()
+## 'Fri Feb 21 18:19:11 CST 2020 UserHost.local' 
 
-lst = os.popen("""
+os.popen("""
 echo $(date) $(hostname)
-""").read()[:-1].split(' ')
-lst
-## ['Fri', 'Feb', '21', '18:19:11', 'CST', '2020', 'UserHost.local']
+echo $HOME
+""").readlines()
+## ['Fri Feb 21 18:19:11 CST 2020 UserHost.local\n', '/home/user\n']
+
+os.popen("""
+echo $(date) $(hostname)
+echo $HOME
+""").read().strip().split('\n')
+## ['Fri Feb 21 18:19:11 CST 2020 UserHost.local', '/home/user']
 
 # Make directory and navigation
 os.getcwd()
@@ -194,11 +234,11 @@ os.getenv('HOME')
 os.environ ## returns all the envs as ENV:PATH 
 ```
 
-### Unix style pathname pattern expansion (`glob`)
+### Glob
 
-The glob module finds all the pathnames matching a specified pattern
-according to the rules used by the Unix shell, although results are
-returned in arbitrary order.
+Unix style pathname pattern expansion (`glob`) module finds all the
+pathnames matching a specified pattern according to the rules used by
+the Unix shell, although results are returned in arbitrary order.
 
 ``` python
 import glob
@@ -207,9 +247,11 @@ glob.glob('*.py')
 ## ['file1.py', 'file2.py']
 ```
 
-### System-specific parameters and functions (`sys`)
+### Sys
 
-Let’s create the following Python code called `test-sys.py`:
+System-specific parameters and functions (`sys`) module help to pass
+arguments and standard inputs. Let’s create the following Python script
+called `test-sys.py`:
 
 ``` python
 import sys
@@ -231,11 +273,75 @@ hostname | python3 test-sys.py buzz
 ```
 
 When `argv[0]` is file name, `argv[1]` is user name (buzz) and host name
-comes from the Shell pipe as standard input (`stdin`).
+comes from the Shell pipe as standard input (`stdin`). Sys module has
+many methods that you may find them in the Python docs.
 
-### JSON encoder and decoder (`json`)
+### Argeparse
 
-This module read and write JSON files.
+Parser for command-line options, arguments and sub-commands (`argparse`)
+module makes it easy to write user-friendly command-line interfaces. The
+program defines what arguments it requires, and `argparse` will figure
+out how to parse those out of `sys.argv`. Lets create a script
+(`reverse-file.py`) that read text files and print in reverse order
+(bottom to top):
+
+``` python
+import argparse
+import sys
+
+parser = argparse.ArgumentParser(description = 'Read a file in reverse')
+parser.add_argument('filename', help = 'the file to read')
+parser.add_argument('-v', '--version', action = 'version', version = '%(prog)s 1.0', help = 'show program version and exit')
+parser.add_argument('-l', '--limit', type = int, help = 'the number of lines to read')
+
+args = parser.parse_args()
+
+try:
+    f = open(args.filename)
+except FileNotFoundError as err:
+    print("Error:", err)
+    sys.exit(2)
+else:
+    with open(args.filename, 'r') as f:
+        lines = f.readlines()
+        lines.reverse()
+        
+    if args.limit:
+        lines = lines[:args.limit]
+            
+    for line in lines:
+        print(line.strip())
+```
+
+Now we can use the script to read files in reverse. We can use `-h` or
+`-v` options to see help and version:
+
+``` bash
+python3 reverse-file.py -h
+```
+
+``` 
+usage: reverse-file.py [-h] [-v] [-l LIMIT] filename
+Read a file in reverse
+positional arguments:
+ filename                 the file to read
+optional arguments:
+ -h, --help               show this help message and exit
+ -v, --version            show program version and exit
+ -l LIMIT, --limit LIMIT  the number of lines to read                       
+```
+
+To read last 2 lines of a file and print in reverse order we can run:
+
+``` bash
+python3 reverse-file.py -l 2 new_file.txt
+## The second line
+## The first line
+```
+
+### JSON
+
+JSON encoder and decoder (`json`) module read and write JSON files.
 
 ``` python
 import json
@@ -276,12 +382,12 @@ cat output.json | python jread.py
 ## Monty Python and the Holy Grail
 ```
 
-### Python object serialization (`pickle`)
+### Pickle
 
-The pickle module implements binary protocols for serializing and
-de-serializing a Python object structure. You might prefer JSON to
-pickle for many reasons such as security and human readability. Learn
-more about pickle in
+Python object serialization (`pickle`) module implements binary
+protocols for serializing and de-serializing a Python object structure.
+You might prefer JSON to pickle for many reasons such as security and
+human readability. Learn more about pickle in
 [here](https://docs.python.org/3/library/pickle.html).
 
 ``` python
@@ -302,9 +408,9 @@ print(pkl)
 ## b'\x80\x04\x95H\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x05title\x94\x8c\x1fMonty Python and the Holy Grail\x94\x8c\x04year\x94]\x94(M\xb7\x07\x8c\x08March 14\x94eu.'
 ```
 
-### CSV file reading and writing (`csv`)
+### CSV
 
-This module read and write CSV files.
+CSV file reading and writing (`csv`) module read and write CSV files.
 
 ``` python
 import csv
@@ -355,9 +461,10 @@ Now, open a Unix Shell and run:
 cat output1.csv | python csvread.py
 ```
 
-### Interface for SQLite (`sqlite3`)
+### SQLite3
 
-This module provides a SQL interface compliant. Example from [Python
+Interface for SQLite (`sqlite3`) module provides a SQL interface
+compliant. Example from [Python
 documentation](https://docs.python.org/3/library/sqlite3.html).
 
 ``` python
@@ -381,11 +488,11 @@ conn.commit()
 conn.close()
 ```
 
-### Container datatypes (`collections`)
+### Collections
 
-This module implements specialized container datatypes providing
-alternatives to Python’s general purpose built-in containers, `dict`,
-`list`, `set`, and `tuple`.
+Container datatypes (`collections`) module implements specialized
+container datatypes providing alternatives to Python’s general purpose
+built-in containers, `dict`, `list`, `set`, and `tuple`.
 
 ``` python
 import collections
@@ -417,9 +524,10 @@ dict(sorted(d.items()))
 ## {'blue': [2, 4], 'red': [1], 'yellow': [1, 3]}
 ```
 
-### Time access and conversions (`time`)
+### Time
 
-This module provides various time-related functions.
+Time access and conversions (`time`) module provides various
+time-related functions.
 
 ``` python
 import time
@@ -474,9 +582,10 @@ Commonly used time format codes:
   - `%p` Locale’s equivalent of either AM or PM.
   - `%I` Hour (12-hour clock) as a decimal number \[01,12\].
 
-### Functions creating iterators for efficient looping (`itertools`)
+### Itertools
 
-This module implements a number of iterator building blocks.
+Functions creating iterators for efficient looping (`itertools`) module
+implements a number of iterator building blocks.
 
 ``` python
 import itertools
@@ -509,11 +618,12 @@ list(itertools.accumulate(mylist))
 ## [1, 4, 9, 16, 25, 36, 49]
 ```
 
-### Regular expression operations (`re`)
+### RE
 
-In this module, you specify the rules for the set of possible strings
-that you want to match; this set might contain English sentences, or
-e-mail addresses, or TeX commands, or anything you like (from [Python
+In Regular expression operations (`re`) module, we specify the rules for
+the set of possible strings that you want to match; this set might
+contain English sentences, or e-mail addresses, or TeX commands, or
+anything you like (from [Python
 HOWTOs](https://docs.python.org/3/howto/regex.html#regex-howto)).
 
 ``` python
