@@ -45,11 +45,11 @@ After activating the environment with the above command, we can use
 `pip` to install required packages by:
 
 ``` bash
-pip install package1 package2=version package3>=version ...
+pip install <package1> <package2=version> <package3>=version> ...
 ```
 
-For example, the following Bash scripts creates `tutorial-env` if it
-does not exist, and upgrade `pip` and install modules after activation:
+For example, the following Bash script creates `tutorial-env` if it does
+not exist, and install `redis` and `gitpython` after activation:
 
 ``` bash
 #!/bin/bash
@@ -59,10 +59,30 @@ if [ ! -d tutorial-env ]; then
 fi
 
 source tutorial-env/bin/activate
-
-pip install --upgrade pip
 pip install redis gitpython
 ```
+
+To uninstall packges use:
+
+``` bash
+pip unisntall <package1> <package2> ...
+```
+
+To keep a list of the packages (commonly called `requirement.txt`) that
+are installed in the env, use:
+
+``` bash
+pip freez > requirement.txt
+```
+
+To install packages from a `requirement.txt` file use:
+
+``` bash
+pip install -r requirement.txt
+```
+
+We can use `deactivate` command to deactivate and env and use `rm -rf
+<env_path>` to remove th env.
 
 -----
 
@@ -72,14 +92,14 @@ To create virtual environments, [Conda](https://conda.io/en/latest/)
 could be the best environment management system. Miniconda is an open
 source package and environment management system that includes Conda.
 Conda quickly installs, runs and updates packages and their
-dependencies. To start using Conda, follow [Conda
-website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-instruction to install Miniconda (or Anaconda if you want to have most
-of the scientific packages) on your operating system.
+dependencies. To start using Conda, follow the instruction in
+[here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+to install Miniconda (or Anaconda if you want to have most of the
+scientific packages) on your operating system.
 
 When Miniconda is installed, use `conda init <shell-name>` to initiate
 Conda and run `conda config --set auto_activate_base false` to stop auto
-base activation.
+base activation. We can also use `conda update conda` to upate Conda.
 
 For adding Conda autocompletion, in bash terminal copy
 [conda-bash-completion](https://github.com/tartansandal/conda-bash-completion/blob/master/conda)
@@ -99,38 +119,40 @@ To create a new environment, use `conda create` command including names
 of the environment and required packages:
 
 ``` bash
-conda create --name env_name package1 package2=version ...
+conda create --name <env_name> <package1> <package2=version> ...
+# or
+conda create --prefix <env_path> <package1> <package2=version> ...
 ```
 
 We also can use `--yes` flag to set up the environment without a
-question and use `--prefix <env_path>` to setup the environment in a
-certain path (note that we can not use `--prefix` and `--name` at the
-same time). To see list of environments, use the following:
+question. We use `--prefix <env_path>` to setup the environment in a
+certain path. Note that we can not use `--prefix` and `--name` at the
+same time.
+
+To see list of environments, use the following:
 
 ``` bash
 conda env list
 ```
 
-We can also use `conda info --envs` to see list of envs. To activate an
-environment type:
+To activate an environment type:
 
 ``` bash
-conda activate env_name or env_path
+conda activate <env_name> or <env_path>
 ```
 
 Note that, for Conda versions prior to 4.6 we need to use `source`
-instead of `conda` in the above commands. Now, use the following to
-update `conda` and install new packages in an activated env:
+instead of `conda` to activate an env. Now, use the following to install
+new packages in the activated env:
 
 ``` bash
-conda update conda
-conda install package1 package2=version ...
+conda install <package1> <package2=version> ...
 ```
 
-To remove packages use:
+To uninstall packages use:
 
 ``` bash
-conda remove package1 package2=version ...
+conda uninstall <package1> <package2=version> ...
 ```
 
 To see list of the installed packages within the env, use:
@@ -139,23 +161,42 @@ To see list of the installed packages within the env, use:
 conda list
 ```
 
-And deactivate the env by:
+To keep a list of the packages (commonly called `requirement.txt`) that
+are installed in the env, use:
+
+``` bash
+conda list --export > requirement.txt
+```
+
+We can deactivate the env by:
 
 ``` bash
 conda deactivate
 ```
 
-To remove a virtual environment, deactivate the env and run:
+And remove the deactivated virtual environment by:
 
 ``` bash
-conda env remove --name env_name or --prefix env_path
+conda env remove --name <env_name> or --prefix <env_path>
 ```
 
-And to remove cache files use:
+To remove cache files we can use:
 
 ``` bash
 conda clean --all
 ```
+
+We can regenerate an env from a `requirement.txt` file:
+
+``` bash
+conda create --name <env_name> --file requirments.txt
+```
+
+Note that there is a short form for most of the Conda options that can
+be used instead of the long form. For instance, `-n`, `-p`, `-c`, `-y`,
+and `-e` can be used instead of `--name`, `--prefix`, `--channel`,
+`--yes`, and `--export`, respecively. You may find more information by
+using `conda -h` or `conda <command> -h`.
 
 ### Conda channels
 
@@ -165,7 +206,7 @@ install the packages. If you are looking for specific packages that are
 not in the default channels you have to mention them by using:
 
 ``` bash
-codna create --name env_name --channel channel1 --channel channel2 ... package1 package2 ...
+codna create --name <env_name> --channel <channel1> --channel <channel2> ... <package1> <package2> ...
 ```
 
 For example the following creates `new_env` and installs r-sf, shapely
@@ -202,10 +243,10 @@ a new environment:
 ``` bash
 module load miniconda3
 
-if [ ! -d yourlocal_env ]; then
-conda create --yes --prefix ./yourlocal_env package1 package2 ...
+if [ ! -d <env_path> ]; then
+conda create --yes --prefix <env_path> <package1> <package2> ...
 fi
-source activate ./yourlocal_env
+source activate <env_path>
 ```
 
 To keep Conda packages and caches somewhere except the home directory,

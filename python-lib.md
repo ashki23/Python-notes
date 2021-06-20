@@ -168,16 +168,16 @@ my_file.close() ## we should close the file
 Python includes a very extensive standard library that offering a wide
 range of facilities. We can categorize the below modules as follows:
 
-  - Numeric and mathematical: `math`, `cmath`, `statistics`, `random`,
-    `decimal`
+  - Numeric and mathematical: `cmath`, `decimal`, `math`, `random`,
+    `statistics`
   - File formats: `csv`, `json`
-  - Generic operating system services: `os`, `ctypes`, `argparse`,
+  - Generic operating system services: `argparse`, `ctypes`, `os`,
     `time`
   - System-specific parameters and functions: `sys`
   - File and directory access: `glob`, `shutil`
-  - Data persistence: `sqlite3`, `dbm`, `pickle`
-  - Functional programming: `itertools`, `functools`, `operator`
-  - Text processing services: `srting`, `re`, `readline`
+  - Data persistence: `dbm`, `pickle`, `sqlite3`
+  - Functional programming: `functools`, `itertools`, `operator`
+  - Text processing services: `re`, `readline`, `srting`
   - Data types: `collections`, `datetime`
   - Software packaging and distribution: `venv`
   - Launching parallel tasks: `concurrent.futures`
@@ -217,14 +217,15 @@ echo $HOME
 # Make directory and navigation
 os.getcwd()
 ## '/home/user'
-os.mkdir('new_directory')
-os.chdir('new_directory')
+os.mkdir('./new_directory')
+os.chdir('./new_directory')
 os.getcwd()
 ## '/home/user/new_directory'
 
-# Rename and remove
-os.rename('new_directory', 'dir_new')
-os.removedirs('dir_new')
+# Rename (mv) and remove
+os.chdir('../') # move one directory up
+os.rename('./new_directory', './renamed_dir')
+os.removedirs('./renamed_dir')
 os.remove('<file_name>')
 
 # Env variables
@@ -714,10 +715,8 @@ can empower your toolbox.
   - **Redis:** is Python interface to the Redis key-value store
   - **PySpark:** is Python API for Apache Spark
 
-**Hint:**
-[Anaconda](https://ashki23.github.io/python-env.html#miniconda), a
-package manager system for Python, can amazingly help you to add modules
-to your Python environment.
+Review [here](python-env.html) to learn about virtual environments and
+package manager systems for Python.
 
 ---
 
