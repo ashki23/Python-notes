@@ -68,17 +68,17 @@ To uninstall packges use:
 pip unisntall <package1> <package2> ...
 ```
 
-To keep a list of the packages (commonly called `requirement.txt`) that
+To keep a list of the packages (commonly called `requirements.txt`) that
 are installed in the env, use:
 
 ``` bash
-pip freez > requirement.txt
+pip freez > requirements.txt
 ```
 
-To install packages from a `requirement.txt` file use:
+To install packages from a `requirements.txt` file use:
 
 ``` bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 We can use `deactivate` command to deactivate and env and use `rm -rf
@@ -161,11 +161,11 @@ To see list of the installed packages within the env, use:
 conda list
 ```
 
-To keep a list of the packages (commonly called `requirement.txt`) that
+To keep a list of the packages (commonly called `requirements.txt`) that
 are installed in the env, use:
 
 ``` bash
-conda list --export > requirement.txt
+conda list --export > requirements.txt
 ```
 
 We can deactivate the env by:
@@ -186,7 +186,7 @@ To remove cache files we can use:
 conda clean --all
 ```
 
-We can regenerate an env from a `requirement.txt` file:
+We can regenerate an env from a `requirements.txt` file:
 
 ``` bash
 conda create --name <env_name> --file requirments.txt
