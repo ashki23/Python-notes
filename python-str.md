@@ -247,6 +247,7 @@ methods available for strings and the following are some of the main
 methods for strings:
 
   - `str.capitalize()` capitalize
+  - `str.title()` titlecased
   - `str.lower()` lowercase
   - `str.upper()` uppercase
   - `str.find(x)` find index of character x
@@ -255,7 +256,7 @@ methods for strings:
   - `str.count(x)` count how many times x repeated
   - `str.replace(x,y)` replace character x with y
   - `str.split(x)` split an string to a list of strings based on the
-    separator x (can be empty `''`)
+    separator x (can be empty)
   - `str.join(x)` join list of strings or string x to make an string by
     a separator - opposite of `.split()`
   - `str.startswith(x)` True if the string starts with x character
@@ -294,6 +295,9 @@ nm_split
 
 ','.join(nm_split)
 ## 'python,python3'
+
+'new york'.title()
+## 'New York'
 
 ' This is a test '.center(30,'=')
 ## '======= This is a test ======='
