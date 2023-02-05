@@ -12,3 +12,4 @@ introduction of programming in Python. The following is list of content of the r
 - [Regular expression](/regular-expression.md)
 - [Complex numbers](/complex-numbers.md)
 - [Using SQLite in Python](/sqlite.md)
+- [Python vs Spark](/python-vs-spark.md)
