@@ -1,5 +1,4 @@
 # Function programming in Python
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 For efficiently programming with Python, we need to learn how to write
 functions. In this article we will be familiar with basic of function
@@ -7,27 +6,27 @@ programming in Python 3 and learn about some Python’s built-in functions
 through several examples. As a prerequisite for this tutorial, it is
 better to learn the following first:
 
-  - [Python data structures](python-str.html)
-  - [Control flow tools in
-    Python](https://docs.python.org/3/tutorial/controlflow.html)
+- [Python data structures](python-str.html)
+- [Control flow tools in
+  Python](https://docs.python.org/3/tutorial/controlflow.html)
 
 The following is a good resource to learn more about function
 programming subject:
 
-  - [Functional Programming
-    HOWTO](https://docs.python.org/3.8/howto/functional.html)
+- [Functional Programming
+  HOWTO](https://docs.python.org/3.8/howto/functional.html)
 
------
+------------------------------------------------------------------------
 
 ## Defining functions
 
 We can use Python to define any function that we want. A function should
 include:
 
-  - **name**, to be able to refer it later
-  - **documentation**, to explain the function (optional)
-  - **parameters**, that could be zero or more
-  - **body**, that contains all computations that the function is doing
+- **name**, to be able to refer it later
+- **documentation**, to explain the function (optional)
+- **parameters**, that could be zero or more
+- **body**, that contains all computations that the function is doing
 
 In general, we can use `def` command to define functions like:
 
@@ -52,10 +51,10 @@ mult(12, 13)
 
 In general, we can define three types of functions:
 
-  - **computative**, find the results by substituting parameters and
-    doing calculations
-  - **iterative**, find the results by iteration (control flow tools)
-  - **recursive**, find the results by recursion (function itself)
+- **computative**, find the results by substituting parameters and doing
+  calculations
+- **iterative**, find the results by iteration (control flow tools)
+- **recursive**, find the results by recursion (function itself)
 
 In above example, we used a **computative** function to find *a \* b*.
 Now let’s use **iterative** method:
@@ -435,4 +434,4 @@ list(return_num(test))
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

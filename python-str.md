@@ -1,5 +1,4 @@
 # Python data structures
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 [Python](https://www.python.org/) is an easy to learn, powerful
 programming language. It has efficient high-level data structures and a
@@ -8,32 +7,30 @@ we need to learn how Python treats with data. In this article we will
 learn about data types and structures in Python 3 through several
 examples. You may find more about Python programming at:
 
-  - [Programming with
-    Python](http://swcarpentry.github.io/python-novice-inflammation/)
-  - [Plotting and Programming in
-    Python](http://swcarpentry.github.io/python-novice-gapminder/)
-  - [Analysis pipelines with
-    Python](https://hpc-carpentry.github.io/hpc-python/)
-  - [The Python
-    Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
-  - [Function programming in Python](python-fun.html)
+- [Programming with
+  Python](http://swcarpentry.github.io/python-novice-inflammation/)
+- [Plotting and Programming in
+  Python](http://swcarpentry.github.io/python-novice-gapminder/)
+- [Analysis pipelines with
+  Python](https://hpc-carpentry.github.io/hpc-python/)
+- [The Python
+  Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+- [Function programming in Python](python-fun.html)
 
------
+------------------------------------------------------------------------
 
 ## Python object types
 
 Most common types in Python are:
 
-  - Strings `str`
-  - Numbers `int`, `float`, `complex`
-  - Booleans `bool`
-  - None `NoneType`
-  - Lists `[]`
-  - Tuples `()`
-  - Sets `{}`
-  - Dictionaries `{key:value}`
-
-<!-- end list -->
+- Strings `str`
+- Numbers `int`, `float`, `complex`
+- Booleans `bool`
+- None `NoneType`
+- Lists `[]`
+- Tuples `()`
+- Sets `{}`
+- Dictionaries `{key:value}`
 
 ``` python
 for element in ['a', True, None, 123, 0.777, 8j, [1,2], (1,2), {1,2}, {'key':1}]:
@@ -168,7 +165,7 @@ As a summary review the following table:
 <div style="margin-bottom: 1rem; overflow-x: auto;">
 
 | Type   | Concatenate | Subscriptable | Mutable |
-| ------ | ----------- | ------------- | ------- |
+|--------|-------------|---------------|---------|
 | Number | No          | No            | No      |
 | String | Yes         | Yes           | No      |
 | Tuple  | Yes         | Yes           | No      |
@@ -182,17 +179,15 @@ As a summary review the following table:
 
 We can use the following commands to convert objects to other types:
 
-  - `str()` create a string
-  - `int()` create an integer
-  - `float()` create a float
-  - `complex()` create a complex number
-  - `bool()` create a boolean
-  - `list()` create a list
-  - `tuple()` create a tuple
-  - `set()` create a set
-  - `dict()` create a dictionary
-
-<!-- end list -->
+- `str()` create a string
+- `int()` create an integer
+- `float()` create a float
+- `complex()` create a complex number
+- `bool()` create a boolean
+- `list()` create a list
+- `tuple()` create a tuple
+- `set()` create a set
+- `dict()` create a dictionary
 
 ``` python
 str(5) + ' five'
@@ -223,7 +218,7 @@ dict([('a',1),('b',2),('c',3)])
 ## {'a': 1, 'b': 2, 'c': 3}
 ```
 
------
+------------------------------------------------------------------------
 
 ## Data structures
 
@@ -231,11 +226,11 @@ There are five major [data
 structures](https://docs.python.org/3.7/tutorial/datastructures.html) in
 Python:
 
-  - Strings: `srt()`, `' '`
-  - Lists: `list()`, `[]`
-  - Tuples: `tuple()`, `()`
-  - Sets: `set()`, `{}`
-  - Dictionaries: `dict()`, `{key:value}`
+- Strings: `srt()`, `' '`
+- Lists: `list()`, `[]`
+- Tuples: `tuple()`, `()`
+- Sets: `set()`, `{}`
+- Dictionaries: `dict()`, `{key:value}`
 
 ### Strings
 
@@ -246,23 +241,23 @@ double quotes (`' '` or `" "`) considers as string. There are several
 methods available for strings and the following are some of the main
 methods for strings:
 
-  - `str.capitalize()` capitalize
-  - `str.title()` titlecased
-  - `str.lower()` lowercase
-  - `str.upper()` uppercase
-  - `str.find(x)` find index of character x
-  - `str.index(x)` index of character x (similar to `.find(x)` if x is
-    in the string)
-  - `str.count(x)` count how many times x repeated
-  - `str.replace(x,y)` replace character x with y
-  - `str.split(x)` split an string to a list of strings based on the
-    separator x (can be empty)
-  - `str.join(x)` join list of strings or string x to make an string by
-    a separator - opposite of `.split()`
-  - `str.startswith(x)` True if the string starts with x character
-  - `str.endswith(x)` True if the string ends with x character
-  - `str.strip()` removing whitespace from the beginning and ending
-  - `str.center('chr', num)` see an example in the below
+- `str.capitalize()` capitalize
+- `str.title()` titlecased
+- `str.lower()` lowercase
+- `str.upper()` uppercase
+- `str.find(x)` find index of character x
+- `str.index(x)` index of character x (similar to `.find(x)` if x is in
+  the string)
+- `str.count(x)` count how many times x repeated
+- `str.replace(x,y)` replace character x with y
+- `str.split(x)` split an string to a list of strings based on the
+  separator x (can be empty)
+- `str.join(x)` join list of strings or string x to make an string by a
+  separator - opposite of `.split()`
+- `str.startswith(x)` True if the string starts with x character
+- `str.endswith(x)` True if the string ends with x character
+- `str.strip()` removing whitespace from the beginning and ending
+- `str.center('chr', num)` see an example in the below
 
 For example:
 
@@ -328,21 +323,19 @@ example[3][1]
 
 Here are main lists methods:
 
-  - `list.append(x)` append x
-  - `list.extend(x)` or `+=` extend/add x
-  - `list.insert(i,x)` insert x to index i
-  - `list.remove(x)` remove x
-  - `list.pop(i)` pop out and remove item at index i (similar to
-    `del(list[i])`)
-  - `list.pop()` pop out and remove the last item
-  - `list.sort()` sort
-  - `list.reverse()` reverse the order
-  - `list.count(x)` count number of times x is repeated
-  - `list.index(x)` find index of item x
-  - `list.copy()` copy list
-  - `list.clear()` clear list
-
-<!-- end list -->
+- `list.append(x)` append x
+- `list.extend(x)` or `+=` extend/add x
+- `list.insert(i,x)` insert x to index i
+- `list.remove(x)` remove x
+- `list.pop(i)` pop out and remove item at index i (similar to
+  `del(list[i])`)
+- `list.pop()` pop out and remove the last item
+- `list.sort()` sort
+- `list.reverse()` reverse the order
+- `list.count(x)` count number of times x is repeated
+- `list.index(x)` find index of item x
+- `list.copy()` copy list
+- `list.clear()` clear list
 
 ``` python
 a = [1,4,5]
@@ -468,12 +461,12 @@ singleton
 
 Since tuples are immutable, there are only two methods:
 
-  - `tuple.count(x)` count number of times x repeated
-  - `tuple.index(x)` find index of item x
+- `tuple.count(x)` count number of times x repeated
+- `tuple.index(x)` find index of item x
 
 By tuples we can change the variables at the same time. Let assume we
-have two variables `a = 10` and `b = 20` and want `a = b = 20` and `b =
-a + b = 30`. For example:
+have two variables `a = 10` and `b = 20` and want `a = b = 20` and
+`b = a + b = 30`. For example:
 
 ``` python
 a = 10
@@ -518,15 +511,15 @@ example['first key']
 
 Here are some of dictionaries methods:
 
-  - `dict.update()` update/add items
-  - `dict.popitem()` remove the last item
-  - `dict.pop(k)` remove item with key k
-  - `dict.keys()` return keys
-  - `dict.values()` return values
-  - `dict.items()` return items
-  - `dict.get(k)` return value for key k
-  - `dict.copy()` copy dict
-  - `dict.clear()` clear dict
+- `dict.update()` update/add items
+- `dict.popitem()` remove the last item
+- `dict.pop(k)` remove item with key k
+- `dict.keys()` return keys
+- `dict.values()` return values
+- `dict.items()` return items
+- `dict.get(k)` return value for key k
+- `dict.copy()` copy dict
+- `dict.clear()` clear dict
 
 For example:
 
@@ -662,15 +655,13 @@ for element in [[], (), {}]:
 
 Sets have several methods including set operations such as:
 
-  - `set.add(x)`: add a member to the set
-  - `set.update(x)`: add a set/list to a set
-  - `set.remove(x)`: remove a member of the set
-  - `set.pop()`: pop out and remove the first member
-  - `set.union(x)`: union of a set/list to a set
-  - `set.intersection(x)`: intersection of a set/list to a set
-  - `set.difference(x)`: difference of a set/list to a set
-
-<!-- end list -->
+- `set.add(x)`: add a member to the set
+- `set.update(x)`: add a set/list to a set
+- `set.remove(x)`: remove a member of the set
+- `set.pop()`: pop out and remove the first member
+- `set.union(x)`: union of a set/list to a set
+- `set.intersection(x)`: intersection of a set/list to a set
+- `set.difference(x)`: difference of a set/list to a set
 
 ``` python
 s = {1,2,3}
@@ -695,4 +686,4 @@ Iterating through sets:
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

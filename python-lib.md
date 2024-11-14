@@ -1,5 +1,4 @@
 # Python standard library
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 Python standard library includes about 220 modules and 89 built-in
 functions (Python 3.9). Each of these modules designed for specific
@@ -13,39 +12,39 @@ some useful modules for general Python users.
 
 Sources:
 
-  - [Python built-in
-    functions](https://docs.python.org/3/library/functions.html)
-  - [Python lexical
-    analysis](https://docs.python.org/3/reference/lexical_analysis.html)
-  - [The Python standard
-    library](https://docs.python.org/3/library/index.html)
+- [Python built-in
+  functions](https://docs.python.org/3/library/functions.html)
+- [Python lexical
+  analysis](https://docs.python.org/3/reference/lexical_analysis.html)
+- [The Python standard
+  library](https://docs.python.org/3/library/index.html)
 
 You might also like these related articles:
 
-  - [Python data structures](python-str.html)
-  - [Function programming in Python](python-fun.html)
-  - [Virtual environments in Python](python-env.html)
+- [Python data structures](python-str.html)
+- [Function programming in Python](python-fun.html)
+- [Virtual environments in Python](python-env.html)
 
------
+------------------------------------------------------------------------
 
 ## Built-in functions and keywords
 
 In general we can categorize built-in functions to:
 
-  - Mathematical: `abs`, `divmod`, `max`, `min`, `pow`, `round`, `sum`
-  - Logical/test: `all`, `any`, `isinstance`, `issubclass`
-  - Structural: `bool`, `bytes`, `bytearray`, `complex`, `dict`,
-    `float`, `frozenset`, `int`, `list`, `set`, `str`, `type`, `tuple`
-  - Applicator: `exec`, `eval`, `filter`, `len`, `map`, `reversed`,
-    `sorted`, `slice`, `zip`
-  - Iteration:`enumerate`, `iter`, `next`, `range`
-  - In/out: `input`, `open`, `print`
-  - Character converter: `ascii`, `bin`, `chr`, `format`, `hex`, `oct`,
-    `ord`, `repr`
-  - Variable’s scope/location: `dir`, `globals`, `id`, `locals`, `vars`
-  - Objects: `callable`, `delattr`, `getattr`, `hasattr`, `setattr`
-  - Other: `breakpoint`, `classmethod`, `compile`, `memoryview`,
-    `property`, `staticmethod`, `super`, …
+- Mathematical: `abs`, `divmod`, `max`, `min`, `pow`, `round`, `sum`
+- Logical/test: `all`, `any`, `isinstance`, `issubclass`
+- Structural: `bool`, `bytes`, `bytearray`, `complex`, `dict`, `float`,
+  `frozenset`, `int`, `list`, `set`, `str`, `type`, `tuple`
+- Applicator: `exec`, `eval`, `filter`, `len`, `map`, `reversed`,
+  `sorted`, `slice`, `zip`
+- Iteration:`enumerate`, `iter`, `next`, `range`
+- In/out: `input`, `open`, `print`
+- Character converter: `ascii`, `bin`, `chr`, `format`, `hex`, `oct`,
+  `ord`, `repr`
+- Variable’s scope/location: `dir`, `globals`, `id`, `locals`, `vars`
+- Objects: `callable`, `delattr`, `getattr`, `hasattr`, `setattr`
+- Other: `breakpoint`, `classmethod`, `compile`, `memoryview`,
+  `property`, `staticmethod`, `super`, …
 
 Note that functions require parentheses, for instance `abs(-7)` or
 `range(3)`. Some of the built-in functions are part of a module that can
@@ -55,11 +54,11 @@ from module io has `read`, `write`, `seek`, `close` and more methods
 
 The most common operators are:
 
-  - Arithmetic `+`, `-`, `*`, `/`, `**`, `//`, `%`, `@`
-  - Indexing: `[`
-  - Sequence operator: `:`
-  - Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `**=`, `//=`, `%=`, `@=`
-  - Ordering and comparison: `<`, `>`, `<=`, `>=`, `==`, `!=`
+- Arithmetic `+`, `-`, `*`, `/`, `**`, `//`, `%`, `@`
+- Indexing: `[`
+- Sequence operator: `:`
+- Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `**=`, `//=`, `%=`, `@=`
+- Ordering and comparison: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
 The following identifiers are used as reserved words, or keywords of the
 language, and cannot be used as ordinary identifier:
@@ -168,19 +167,18 @@ my_file.close() ## we should close the file
 Python includes a very extensive standard library that offering a wide
 range of facilities. We can categorize the below modules as follows:
 
-  - Numeric and mathematical: `cmath`, `decimal`, `math`, `random`,
-    `statistics`
-  - File formats: `csv`, `json`
-  - Generic operating system services: `argparse`, `ctypes`, `os`,
-    `time`
-  - System-specific parameters and functions: `sys`
-  - File and directory access: `glob`, `shutil`
-  - Data persistence: `dbm`, `pickle`, `sqlite3`
-  - Functional programming: `functools`, `itertools`, `operator`
-  - Text processing services: `re`, `readline`, `srting`
-  - Data types: `collections`, `datetime`
-  - Software packaging and distribution: `venv`
-  - Launching parallel tasks: `concurrent.futures`
+- Numeric and mathematical: `cmath`, `decimal`, `math`, `random`,
+  `statistics`
+- File formats: `csv`, `json`
+- Generic operating system services: `argparse`, `ctypes`, `os`, `time`
+- System-specific parameters and functions: `sys`
+- File and directory access: `glob`, `shutil`
+- Data persistence: `dbm`, `pickle`, `sqlite3`
+- Functional programming: `functools`, `itertools`, `operator`
+- Text processing services: `re`, `readline`, `srting`
+- Data types: `collections`, `datetime`
+- Software packaging and distribution: `venv`
+- Launching parallel tasks: `concurrent.futures`
 
 The following are some of applications of the above modules.
 
@@ -321,16 +319,14 @@ Now we can use the script to read files in reverse. We can use `-h` or
 python3 reverse-file.py -h
 ```
 
-``` 
-usage: reverse-file.py [-h] [-v] [-l LIMIT] filename
-Read a file in reverse
-positional arguments:
- filename                 the file to read
-optional arguments:
- -h, --help               show this help message and exit
- -v, --version            show program version and exit
- -l LIMIT, --limit LIMIT  the number of lines to read                       
-```
+    usage: reverse-file.py [-h] [-v] [-l LIMIT] filename
+    Read a file in reverse
+    positional arguments:
+     filename                 the file to read
+    optional arguments:
+     -h, --help               show this help message and exit
+     -v, --version            show program version and exit
+     -l LIMIT, --limit LIMIT  the number of lines to read                       
 
 To read last 2 lines of a file and print in reverse order we can run:
 
@@ -360,11 +356,11 @@ with open('output.json', 'w') as jso:
 js = json.dumps(list_dict)
 ```
 
-Note that we read files by system arguments (`sys.argv`) by using `with
-open(sys.argv[1], 'r') as jsf`. Also, we can read use standard inputs
-(`sys.stdin`) to read the files. For instance the following script,
-`jread.py`, read the `output.json` (from the above example) and print
-titles:
+Note that we read files by system arguments (`sys.argv`) by using
+`with open(sys.argv[1], 'r') as jsf`. Also, we can read use standard
+inputs (`sys.stdin`) to read the files. For instance the following
+script, `jread.py`, read the `output.json` (from the above example) and
+print titles:
 
 ``` python
 import json 
@@ -566,22 +562,22 @@ time.strptime("30 Nov 20", "%d %b %y") # parse a string to a time tuple accordin
 
 Commonly used time format codes:
 
-  - `%Y` Year with century as a decimal number.
-  - `%m` Month as a decimal number \[01,12\].
-  - `%d` Day of the month as a decimal number \[01,31\].
-  - `%H` Hour (24-hour clock) as a decimal number \[00,23\].
-  - `%M` Minute as a decimal number \[00,59\].
-  - `%S` Second as a decimal number \[00,61\].
-  - `%z` Time zone offset from UTC.
-  - `%a` Locale’s abbreviated weekday name.
-  - `%A` Locale’s full weekday name.
-  - `%b` Locale’s abbreviated month name.
-  - `%B` Locale’s full month name.
-  - `%c` Locale’s appropriate date and time representation.
-  - `%x` Locale’s appropriate date representation.
-  - `%X` Locale’s appropriate time representation.
-  - `%p` Locale’s equivalent of either AM or PM.
-  - `%I` Hour (12-hour clock) as a decimal number \[01,12\].
+- `%Y` Year with century as a decimal number.
+- `%m` Month as a decimal number \[01,12\].
+- `%d` Day of the month as a decimal number \[01,31\].
+- `%H` Hour (24-hour clock) as a decimal number \[00,23\].
+- `%M` Minute as a decimal number \[00,59\].
+- `%S` Second as a decimal number \[00,61\].
+- `%z` Time zone offset from UTC.
+- `%a` Locale’s abbreviated weekday name.
+- `%A` Locale’s full weekday name.
+- `%b` Locale’s abbreviated month name.
+- `%B` Locale’s full month name.
+- `%c` Locale’s appropriate date and time representation.
+- `%x` Locale’s appropriate date representation.
+- `%X` Locale’s appropriate time representation.
+- `%p` Locale’s equivalent of either AM or PM.
+- `%I` Hour (12-hour clock) as a decimal number \[01,12\].
 
 ### Itertools
 
@@ -684,7 +680,7 @@ mm.group(0)
 ## 'I want everything before'
 ```
 
------
+------------------------------------------------------------------------
 
 ## Other packages
 
@@ -692,32 +688,31 @@ Beside the standard library, we can add numerous packages to the Python
 toolkit. The following are some of the most famous Python packages that
 can empower your toolbox.
 
-  - **SymPy:** a library for symbolic mathematics
-  - **Matplotlib:** a comprehensive 2D plotting library
-  - **IPython/Jupyter:** an enhanced interactive console
-  - **Pandas:** a tool for working with tabular data (DataFrame), such
-    as data stored in spreadsheets or databases
-  - **NumPy:** a base N-dimensional array package - useful linear
-    algebra
-  - **SciPy:** a Python-based ecosystem of open-source software for
-    mathematics, science, and engineering
-  - **Numba:** an open source JIT compiler that translates a subset of
-    Python and NumPy code into fast machine code
-  - **Cython:** a library for writing C extensions for Python as easy as
-    Python itself
-  - **mpi4py:** it provides Python bindings for the Message Passing
-    Interface (MPI) standard
-  - **SciKit-Learn:** a library for machine learning
-  - **TensorFlow:** a library for fast numerical computing and deep
-    learning
-  - **Dask:** it natively scales Python and provides advanced
-    parallelism for analytics
-  - **Redis:** is Python interface to the Redis key-value store
-  - **PySpark:** is Python API for Apache Spark
+- **SymPy:** a library for symbolic mathematics
+- **Matplotlib:** a comprehensive 2D plotting library
+- **IPython/Jupyter:** an enhanced interactive console
+- **Pandas:** a tool for working with tabular data (DataFrame), such as
+  data stored in spreadsheets or databases
+- **NumPy:** a base N-dimensional array package - useful linear algebra
+- **SciPy:** a Python-based ecosystem of open-source software for
+  mathematics, science, and engineering
+- **Numba:** an open source JIT compiler that translates a subset of
+  Python and NumPy code into fast machine code
+- **Cython:** a library for writing C extensions for Python as easy as
+  Python itself
+- **mpi4py:** it provides Python bindings for the Message Passing
+  Interface (MPI) standard
+- **SciKit-Learn:** a library for machine learning
+- **TensorFlow:** a library for fast numerical computing and deep
+  learning
+- **Dask:** it natively scales Python and provides advanced parallelism
+  for analytics
+- **Redis:** is Python interface to the Redis key-value store
+- **PySpark:** is Python API for Apache Spark
 
 Review [here](python-env.html) to learn about virtual environments and
 package manager systems for Python.
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

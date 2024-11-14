@@ -1,5 +1,4 @@
 # Python vs Spark
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 There are many tools to handle structured and smi-structured data. Two
 of the most popular tools are Python and Spark. Python’s packages like
@@ -8,7 +7,7 @@ while Spark uses a more SQL type datafame on top of a Java engine and is
 well known for big data analysis. Spark has an interface for Python that
 is called PySpark. To compare Python and Spark, here we use Pyspark.
 
------
+------------------------------------------------------------------------
 
 ## Syntax
 
@@ -90,7 +89,7 @@ can be hard to write some simple tasks.
 ## When using Spark
 
 Despite the harder syntax, Spark has a great advantage that shines when
-the data is big (\> 1 TB)\! Spark distributed processes by assigning a
+the data is big (\> 1 TB)! Spark distributed processes by assigning a
 main controller node and several worker nodes (each note can be one or
 more cores) to split the tasks. That means Spark will parallelize the
 computational tasks out of the box. For example, if you want to count a
@@ -104,7 +103,7 @@ Note that Spark is designed to work with large data and therefore it
 relies on both hard drives and RAMs (in many cases store the data on
 hard drives to prevent RAMs’ overflow). Using hard drives makes the
 read/write process much slower and can increase the time and this is the
-sacrifice that we need to make when the data is large\!
+sacrifice that we need to make when the data is large!
 
 ## When using Python
 
@@ -122,7 +121,7 @@ to use. For instance, when you have a small dataset (\< 1 GB) but you
 want to run 100s of independent analysis on that data, Python can be a
 better solution than Spark.
 
-## A real use case: do an hour job in a couple of minutes\!
+## A real use case: do an hour job in a couple of minutes!
 
 In one of my projects, we are looking to forecast next month’s shipment
 for several commodity groups. We have a data that shows actual shipments
@@ -130,7 +129,7 @@ of each commodity group in addition to the supplier promises for several
 months. We are using many heuristic methods and several regression
 analysis to find the best forecast with the least error. We developed
 this project for both Spark and Python and found interesting results
-when comparing these two\! To run the workflows, we use a GCP instance
+when comparing these two! To run the workflows, we use a GCP instance
 with 64 cores and 160GB RAMs.
 
 First, we developed our workflow in PySpark with using Spark ML library
@@ -151,11 +150,11 @@ After trying Spark, we decided to use Python to see if we can expedite
 the process. We developed a new workflow using Pandas and Scikit-learn
 instead of Spark. When we used the same job submission method, we
 realized that each job can be done much faster in Python (on one core
-only\!). With Python we did not also need to assign several cores for
-the controller nodes, that let us to run more jobs at each time. By
-using Python we were able to finish the computational tasks for all
-commodity groups in a couple of minutes\!
+only!). With Python we did not also need to assign several cores for the
+controller nodes, that let us to run more jobs at each time. By using
+Python we were able to finish the computational tasks for all commodity
+groups in a couple of minutes!
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

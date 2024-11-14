@@ -1,5 +1,4 @@
 # Introduction to TensorFlow
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 [TensorFlow](https://www.tensorflow.org/) is an end-to-end open source
 platform for machine learning. It has a comprehensive, flexible
@@ -7,14 +6,14 @@ ecosystem of tools, libraries and community resources that lets
 researchers push the state-of-the-art in ML and developers easily build
 and deploy ML powered applications.
 
-  - [TensorFlow Guide](https://www.tensorflow.org/guide)
+- [TensorFlow Guide](https://www.tensorflow.org/guide)
 
 This document will cover how to install TensorFlow (TF) by using
 Anaconda and run a toy example in Python. Make sure review
 [Anaconda](python-env.html#miniconda) to learn how to create and
 maintain Conda virtual environments.
 
------
+------------------------------------------------------------------------
 
 ## TensorFlow environment
 
@@ -112,4 +111,4 @@ Slurm out file will show the outputs.
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

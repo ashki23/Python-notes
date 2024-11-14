@@ -1,7 +1,6 @@
 # Virtual environments in Python
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
-"Python applications will often use packages and modules that don’t come
+“Python applications will often use packages and modules that don’t come
 as part of the standard library. Applications will sometimes need a
 specific version of a library, because the application may require that
 a particular bug has been fixed or the application may be written using
@@ -15,13 +14,13 @@ will leave one application unable to run.
 
 The solution for this problem is to create a virtual environment, a
 self-contained directory tree that contains a Python installation for a
-particular version of Python, plus a number of additional packages." -
+particular version of Python, plus a number of additional packages.” -
 from [the Python Tutorial](https://docs.python.org/3/tutorial/venv.html)
 
 In this tutorial we will discuss about two major methods to create and
 manage virtual environments in Python.
 
------
+------------------------------------------------------------------------
 
 ## Venv
 
@@ -81,10 +80,10 @@ To install packages from a `requirements.txt` file use:
 pip install -r requirements.txt
 ```
 
-We can use `deactivate` command to deactivate and env and use `rm -rf
-<env_path>` to remove th env.
+We can use `deactivate` command to deactivate and env and use
+`rm -rf <env_path>` to remove th env.
 
------
+------------------------------------------------------------------------
 
 ## Miniconda
 
@@ -257,4 +256,4 @@ to learn more.
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

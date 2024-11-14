@@ -1,17 +1,15 @@
 # Using SQLite in Python
-*[Ashkan Mirzaee](https://ashki23.github.io/index.html)*
 
 [SQLite](https://www.sqlite.org/index.html) is a C-language library that
 implements a small, fast, self-contained, high-reliability,
 full-featured, SQL database engine. SQLite is the most used database
 engine in the world.
 
-  - [SQLite tutorial](https://www.sqlitetutorial.net/)
-  - [SQLite Python](https://www.sqlitetutorial.net/sqlite-python/)
-  - [Software
-    Carpentry](http://swcarpentry.github.io/sql-novice-survey/)
-  - [Database design with UML and
-    SQL](http://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php)
+- [SQLite tutorial](https://www.sqlitetutorial.net/)
+- [SQLite Python](https://www.sqlitetutorial.net/sqlite-python/)
+- [Software Carpentry](http://swcarpentry.github.io/sql-novice-survey/)
+- [Database design with UML and
+  SQL](http://web.csulb.edu/colleges/coe/cecs/dbdesign/dbdesign.php)
 
 In this tutorial, we will learn how to convert CSV files to database
 tables and run simple SQL queries in Python. We are using “surveys.csv”
@@ -19,7 +17,7 @@ and “species.csv” files from
 [here](https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10)
 to practice our learning.
 
------
+------------------------------------------------------------------------
 
 ## Usage
 
@@ -254,11 +252,11 @@ print(cur.fetchone())
 
 Note that:
 
-  - We can use `fetchall()` to fetch all outputs and `fetchone()` to get
-    the first query
-  - In `LIKE` operator, the wildcard `%` matches zero or more
-    characters, so that `%able%` matches `fixable` and `tablets`
-  - And we can combine fields by `||'<separator>'||`
+- We can use `fetchall()` to fetch all outputs and `fetchone()` to get
+  the first query
+- In `LIKE` operator, the wildcard `%` matches zero or more characters,
+  so that `%able%` matches `fixable` and `tablets`
+- And we can combine fields by `||'<separator>'||`
 
 Also, we can use SQLite3 directly from command line for getting queries.
 For example, change the directory to your database location and enter
@@ -275,4 +273,4 @@ SELECT * FROM survey ORDER BY year ASC LIMIT 10;
 
 ---
 
-Copyright 2018-2023, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+Copyright, [Ashkan Mirzaee](https://ashki23.github.io/index.html) | Content is available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Sourcecode licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
