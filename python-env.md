@@ -44,7 +44,7 @@ After activating the environment with the above command, we can use
 `pip` to install required packages by:
 
 ``` bash
-pip install <package1> <package2=version> <package3>=version> ...
+pip install <package1> <package2=version> <package3=version> ...
 ```
 
 For example, the following Bash script creates `tutorial-env` if it does
@@ -71,13 +71,21 @@ To keep a list of the packages (commonly called `requirements.txt`) that
 are installed in the env, use:
 
 ``` bash
-pip freez > requirements.txt
+pip freeze > requirements.txt
 ```
 
 To install packages from a `requirements.txt` file use:
 
 ``` bash
 pip install -r requirements.txt
+```
+
+We can use the following commands to find information about `pip` cache
+files and remove them:
+
+``` bash
+pip cache info
+pip cache purge
 ```
 
 We can use `deactivate` command to deactivate and env and use
